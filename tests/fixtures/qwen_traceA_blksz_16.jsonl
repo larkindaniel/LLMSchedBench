@@ -1,0 +1,2 @@
+{"chat_id":0,"parent_chat_id":-1,"timestamp":0.0,"input_length":17,"output_length":16,"type":"text","turn":1,"hash_ids":[10,11]}
+{"chat_id":1,"parent_chat_id":0,"timestamp":0.25,"input_length":32,"output_length":0,"type":"search","turn":2,"hash_ids":[10,12]}

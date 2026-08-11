@@ -1,0 +1,49 @@
+{
+  "num_nodes": 1,
+  "link_bw": 16,
+  "link_latency": 20000,
+  "nodes": [
+    {
+      "num_instances": 2,
+      "cpu_mem": {
+        "mem_size": 512,
+        "mem_bw": 256,
+        "mem_latency": 0
+      },
+      "instances": [
+        {
+          "model_name": "meta-llama/Llama-3.1-8B",
+          "hardware": "RTXPRO6000",
+          "npu_mem": {"mem_size": 96, "mem_bw": 1597, "mem_latency": 0},
+          "num_npus": 1,
+          "tp_size": 1,
+          "pd_type": null
+        },
+        {
+          "model_name": "meta-llama/Llama-3.1-8B",
+          "hardware": "RTXPRO6000",
+          "npu_mem": {"mem_size": 96, "mem_bw": 1597, "mem_latency": 0},
+          "num_npus": 1,
+          "tp_size": 1,
+          "pd_type": null
+        }
+      ],
+      "power": {
+        "base_node_power": 0,
+        "npu": {
+          "RTXPRO6000": {
+            "idle_power": 0,
+            "standby_power": 0,
+            "active_power": 1,
+            "standby_duration": 0
+          }
+        },
+        "cpu": {"idle_power": 0, "active_power": 0, "util": 0},
+        "dram": {"dimm_size": 32, "idle_power": 0, "energy_per_bit": 0},
+        "link": {"num_links": 1, "idle_power": 0, "energy_per_bit": 0},
+        "nic": {"num_nics": 1, "idle_power": 0},
+        "storage": {"num_devices": 1, "idle_power": 0}
+      }
+    }
+  ]
+}

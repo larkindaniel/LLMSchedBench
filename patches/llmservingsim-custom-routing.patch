@@ -1,0 +1,439 @@
+diff --git a/serving/__main__.py b/serving/__main__.py
+index 22620bd955db4746617b6b6848b76558535f1811..690e4b0a82fc5e2290a0a67062c54209385b29d5 100755
+--- a/serving/__main__.py
++++ b/serving/__main__.py
+@@ -190,7 +190,7 @@ def _build_instance_runtime_configs(instances, args, dtype_to_bits):
+     return runtime_configs
+
+
+-def main():
++def main(custom_selector=None):
+     # ----------------------------------------------------------------------------------------------
+     # LLMServingSim runs in astra-sim directory for easy path configuration
+     # your relative path should start from astra-sim directory
+@@ -466,7 +466,10 @@ def main():
+     # Controller for astra-sim process communication
+     controller = Controller(total_npu)
+     # Global Request Router
+-    router = Router(num_instances, schedulers, num_req, request_routing_policy)
++    router = Router(
++        num_instances, schedulers, num_req, request_routing_policy,
++        custom_selector=custom_selector,
++    )
+     # Power Modeling if enabled
+     if power_modeling:
+         power_model = PowerModel(power_configs)
+diff --git a/serving/core/router.py b/serving/core/router.py
+index 20818f20fd48c5c49ff1d62d96c3c8439d389bd6..60d43740979d9ada449df783f73f1dea6565a5e2 100644
+--- a/serving/core/router.py
++++ b/serving/core/router.py
+@@ -1,6 +1,8 @@
+ import bisect
+ import json
+ import random
++from collections.abc import Mapping
++from types import MappingProxyType
+ from .logger import get_logger
+
+
+@@ -10,7 +12,8 @@ class Router:
+             num_instances,
+             schedulers, req_num,
+             routing_policy="RR",
+-            seed=42
++            seed=42,
++            custom_selector=None,
+     ):
+         self.schedulers = schedulers
+         self.num_instances = num_instances
+@@ -20,6 +23,7 @@ class Router:
+         self.decode_instances = len(self.decode_schedulers)
+         self.req_num = req_num
+         self.routing_policy = routing_policy.upper()
++        self.custom_selector = custom_selector
+         self.seed = seed
+         self._rnd = random.Random(seed) if seed is not None else random
+         self.prefill_rr_counter = 0
+@@ -28,6 +32,8 @@ class Router:
+         # Pending requests (loaded but not yet routed)
+         self._pending_requests = []
+         self._pending_idx = 0
++        self._custom_ready_requests = []
++        self._external_request_ids = {}
+         self._enable_prefix_caching = False
+         self._is_init = True
+
+@@ -62,16 +68,16 @@ class Router:
+         else:
+             self.prefill_rr_counter = value
+
+-    def _rr_select(self, schedulers, role):
++    def _rr_select(self, schedulers, role, request=None, current_time_ns=None):
+         num_instances = len(schedulers)
+         idx = self._get_counter(role) % num_instances
+         self._set_counter(role, idx + 1)
+         return idx
+
+-    def _rand_select(self, schedulers, role):
++    def _rand_select(self, schedulers, role, request=None, current_time_ns=None):
+         return self._rnd.randrange(len(schedulers))
+
+-    def _least_load_select(self, schedulers, role):
++    def _least_load_select(self, schedulers, role, request=None, current_time_ns=None):
+         """vLLM-style least-loaded routing, normalized by instance capacity."""
+         best_idx = 0
+         best_score = float('inf')
+@@ -93,8 +99,11 @@ class Router:
+         self._set_counter(role, (best_idx + 1) % num_instances)
+         return best_idx
+
+-    def _custom_select(self, schedulers, role):
+-        raise NotImplementedError("Implement custom routing policy.")
++    def _custom_select(self, schedulers, role, request=None, current_time_ns=None):
++        raise RuntimeError(
++            "CUSTOM routing is handled by the global ready queue; "
++            "call route_arrived_requests instead"
++        )
+
+     # -----------------------------------------------------------------------
+     # Request loading and real-time routing
+@@ -142,6 +151,10 @@ class Router:
+         self._next_request_id += 1
+         req_data = {
+             'index': req_id,
++            'request_id': str(row.get('request_id', req_id)),
++            'session_id': str(row.get('session_id', row.get('request_id', req_id))),
++            'tenant': str(row.get('tenant', 'chat')),
++            'slo_ns': int(row.get('slo_ns', 0)),
+             'input_toks': int(row['input_toks']),
+             'output_toks': int(row['input_toks'] + row['output_toks']),
+             'arrival_time_ns': int(row['arrival_time_ns']),
+@@ -172,10 +185,13 @@ class Router:
+         first = sub_reqs[0]
+         req_data = {
+             'index': base_id,
++            'request_id': str(first.get('request_id', base_id)),
+             'input_toks': int(first['input_toks']),
+             'output_toks': int(first['input_toks'] + first['output_toks']),
+             'arrival_time_ns': arrival_ns,
+             'session_id': session_id,
++            'tenant': str(first.get('tenant', row.get('tenant', 'coding_agent'))),
++            'slo_ns': int(first.get('slo_ns', row.get('slo_ns', 0))),
+             'sub_request_index': 0,
+         }
+         if enable_prefix_caching:
+@@ -192,37 +208,155 @@ class Router:
+         Called at the start of each iteration in the main simulation loop.
+         Returns the number of newly routed requests.
+         """
++        if self.routing_policy == "CUSTOM":
++            return self._route_custom_ready_requests(current_time_ns)
++
+         routed = 0
+         while self._pending_idx < len(self._pending_requests):
+             req_data = self._pending_requests[self._pending_idx]
+             if req_data['arrival_time_ns'] > current_time_ns:
+                 break
+
+-            instance_id = self._select_instance(self.prefill_schedulers, "prefill")
++            instance_id = self._select_instance(
++                self.prefill_schedulers, "prefill", req_data, current_time_ns)
+             sched = self.prefill_schedulers[instance_id]
+-
+-            if sched.enable_prefix_caching:
+-                sched.add_request([
+-                    req_data['index'], sched.model,
+-                    req_data['input_toks'], req_data['output_toks'],
+-                    req_data['arrival_time_ns'], sched.instance_id,
+-                    req_data.get('input_hash_ids', []), req_data.get('output_hash_ids', []),
+-                ], is_init=self._is_init)
+-            else:
+-                sched.add_request([
+-                    req_data['index'], sched.model,
+-                    req_data['input_toks'], req_data['output_toks'],
+-                    req_data['arrival_time_ns'], sched.instance_id,
+-                ], is_init=self._is_init)
++            self._add_request_to_scheduler(req_data, sched)
+
+             self._pending_idx += 1
+             routed += 1
+
+         return routed
+
++    def _add_request_to_scheduler(self, req_data, sched):
++        self._external_request_ids[req_data['index']] = req_data['request_id']
++        if sched.enable_prefix_caching:
++            sched.add_request([
++                req_data['index'], sched.model,
++                req_data['input_toks'], req_data['output_toks'],
++                req_data['arrival_time_ns'], sched.instance_id,
++                req_data.get('input_hash_ids', []), req_data.get('output_hash_ids', []),
++            ], is_init=self._is_init)
++        else:
++            sched.add_request([
++                req_data['index'], sched.model,
++                req_data['input_toks'], req_data['output_toks'],
++                req_data['arrival_time_ns'], sched.instance_id,
++            ], is_init=self._is_init)
++
++    @staticmethod
++    def _readonly_request(req_data):
++        value = dict(req_data)
++        value['input_hash_ids'] = tuple(value.get('input_hash_ids', ()))
++        value['output_hash_ids'] = tuple(value.get('output_hash_ids', ()))
++        return MappingProxyType(value)
++
++    @staticmethod
++    def _readonly_prefix_match(sched, req_data):
++        if not sched.enable_prefix_caching:
++            return 0
++        tokens = req_data.get('input_hash_ids', ())[:req_data['input_toks']]
++        cache = sched.memory.npu_prefix_cache
++        node = cache.root_node
++        matched = 0
++        key = tokens
++        with cache._lock:
++            while key:
++                child_key = cache.get_child_key_fn(key)
++                if child_key not in node.children:
++                    break
++                child = node.children[child_key]
++                prefix_len = cache.key_match_fn(child.key, key)
++                matched += prefix_len
++                if prefix_len < len(child.key):
++                    break
++                node = child
++                key = key[prefix_len:]
++        if cache.page_size != 1:
++            matched = matched // cache.page_size * cache.page_size
++        return matched
++
++    def _custom_worker_views(self):
++        requests = self._custom_ready_requests
++        views = []
++        for sched in self.prefill_schedulers:
++            running = sum(len(batch.requests) for batch in sched.inflight)
++            queued_work = 0
++            for req in sched.request:
++                queued_work += max(req.output - req.num_computed_tokens, 0)
++            for batch in sched.inflight:
++                for req in batch.requests:
++                    queued_work += max(req.output - req.num_computed_tokens, 0)
++            capacity = getattr(sched, 'max_num_seqs', 0)
++            if capacity == float('inf'):
++                capacity = 0
++            reuse = {
++                req['request_id']: self._readonly_prefix_match(sched, req)
++                for req in requests
++            }
++            views.append(MappingProxyType({
++                'worker_id': str(sched.instance_id),
++                'waiting_requests': len(sched.request),
++                'running_requests': running,
++                'capacity': int(capacity),
++                'estimated_queued_token_work': queued_work,
++                'reusable_prefix_tokens_by_request': MappingProxyType(reuse),
++            }))
++        return tuple(views)
++
++    def _route_custom_ready_requests(self, current_time_ns):
++        if self.custom_selector is None:
++            raise RuntimeError("CUSTOM routing requires a custom_selector callback")
++        while self._pending_idx < len(self._pending_requests):
++            req_data = self._pending_requests[self._pending_idx]
++            if req_data['arrival_time_ns'] > current_time_ns:
++                break
++            self._custom_ready_requests.append(req_data)
++            self._pending_idx += 1
++
++        if not self._custom_ready_requests:
++            return 0
++        requests = tuple(
++            self._readonly_request(request) for request in self._custom_ready_requests)
++        decisions = self.custom_selector(
++            requests, int(current_time_ns), self._custom_worker_views(), "prefill")
++        if decisions is None:
++            return 0
++        if isinstance(decisions, Mapping):
++            decisions = [decisions]
++
++        ready = {
++            request['request_id']: request for request in self._custom_ready_requests
++        }
++        schedulers = {
++            str(sched.instance_id): sched for sched in self.prefill_schedulers
++        }
++        admitted = set()
++        for decision in decisions:
++            if not decision.get('admit', True):
++                continue
++            request_id = str(decision['request_id'])
++            worker_id = str(decision['worker_id'])
++            if request_id in admitted:
++                raise ValueError(f"duplicate CUSTOM decision for request {request_id}")
++            if request_id not in ready:
++                raise ValueError(f"CUSTOM decision references unknown request {request_id}")
++            if worker_id not in schedulers:
++                raise ValueError(f"CUSTOM decision references unknown worker {worker_id}")
++            self._add_request_to_scheduler(ready[request_id], schedulers[worker_id])
++            admitted.add(request_id)
++        if admitted:
++            self._custom_ready_requests = [
++                request for request in self._custom_ready_requests
++                if request['request_id'] not in admitted
++            ]
++        return len(admitted)
++
+     def has_pending_requests(self):
+         """Check if there are unrouted requests remaining."""
+-        return self._pending_idx < len(self._pending_requests)
++        return (
++            self._pending_idx < len(self._pending_requests)
++            or bool(self._custom_ready_requests)
++        )
+
+     def get_first_arrival_time(self):
+         """Return the first request's arrival time in ns, or 1 if no requests."""
+@@ -240,6 +374,13 @@ class Router:
+
+         For flat requests (not in a session), this is a no-op.
+         """
++        external_request_id = self._external_request_ids.pop(
++            request_id, str(request_id))
++        if self.custom_selector is not None:
++            on_complete = getattr(self.custom_selector, 'on_complete', None)
++            if on_complete is not None:
++                on_complete(external_request_id)
++
+         session_info = self._request_to_session.pop(request_id, None)
+         if session_info is None:
+             return
+@@ -262,10 +403,13 @@ class Router:
+             next_id = base_id + next_idx
+             req_data = {
+                 'index': next_id,
++                'request_id': str(next_sub.get('request_id', next_id)),
+                 'input_toks': int(next_sub['input_toks']),
+                 'output_toks': int(next_sub['input_toks'] + next_sub['output_toks']),
+                 'arrival_time_ns': release_time_ns,
+                 'session_id': session_id,
++                'tenant': str(next_sub.get('tenant', 'coding_agent')),
++                'slo_ns': int(next_sub.get('slo_ns', 0)),
+                 'sub_request_index': next_idx,
+             }
+             if self._enable_prefix_caching:
+diff --git a/tests/test_custom_router.py b/tests/test_custom_router.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..7a491a973ee30760cd9fbc8e1834bfc1c534110e
+--- /dev/null
++++ b/tests/test_custom_router.py
+@@ -0,0 +1,109 @@
++from types import MappingProxyType
++
++import pytest
++
++from serving.core.router import Router
++from llmschedbench.simulator_bridge import PolicyRouter
++
++
++class FakeRequest:
++    def __init__(self, values):
++        self.id = values[0]
++        self.output = values[3]
++        self.num_computed_tokens = 0
++
++
++class FakeScheduler:
++    def __init__(self, instance_id):
++        self.instance_id = instance_id
++        self.model = "model"
++        self.pd_type = None
++        self.max_num_seqs = 1
++        self.enable_prefix_caching = False
++        self.request = []
++        self.inflight = []
++
++    def add_request(self, values, is_init=True):
++        del is_init
++        self.request.append(FakeRequest(values))
++
++
++def pending(request_id):
++    return {
++        "index": request_id,
++        "request_id": f"external-{request_id}",
++        "session_id": f"session-{request_id}",
++        "tenant": "chat",
++        "slo_ns": 1_000_000_000,
++        "input_toks": 10,
++        "output_toks": 20,
++        "arrival_time_ns": 0,
++        "input_hash_ids": [],
++        "output_hash_ids": [],
++    }
++
++
++def test_load_behavior_is_unchanged():
++    schedulers = [FakeScheduler(0), FakeScheduler(1)]
++    router = Router(2, schedulers, 0, routing_policy="LOAD")
++    router._pending_requests = [pending(0), pending(1)]
++
++    assert router.route_arrived_requests(0) == 2
++    assert [len(scheduler.request) for scheduler in schedulers] == [1, 1]
++
++
++class DeferringSelector:
++    def __init__(self):
++        self.calls = 0
++        self.completed = []
++
++    def __call__(self, requests, current_time_ns, workers, role):
++        assert current_time_ns == 0
++        assert role == "prefill"
++        assert isinstance(requests[0], MappingProxyType)
++        assert isinstance(workers[0], MappingProxyType)
++        with pytest.raises(TypeError):
++            requests[0]["tenant"] = "api_batch"
++        request = requests[0]
++        worker = workers[self.calls]
++        self.calls += 1
++        return [{
++            "admit": True,
++            "request_id": request["request_id"],
++            "worker_id": worker["worker_id"],
++        }]
++
++    def on_complete(self, request_id):
++        self.completed.append(request_id)
++
++
++def test_custom_router_exposes_ready_queue_and_can_defer():
++    schedulers = [FakeScheduler(0), FakeScheduler(1)]
++    selector = DeferringSelector()
++    router = Router(
++        2, schedulers, 0, routing_policy="CUSTOM", custom_selector=selector)
++    router._pending_requests = [pending(0), pending(1)]
++
++    assert router.route_arrived_requests(0) == 1
++    assert router.has_pending_requests()
++    assert router.route_arrived_requests(0) == 1
++    assert not router.has_pending_requests()
++    assert [len(scheduler.request) for scheduler in schedulers] == [1, 1]
++
++    router.notify_request_completed(0, 10)
++    assert selector.completed == ["external-0"]
++
++
++def test_llmschedbench_policy_router_dispatches_global_queue():
++    schedulers = [FakeScheduler(0), FakeScheduler(1)]
++    selector = PolicyRouter("least_loaded")
++    router = Router(
++        2, schedulers, 0, routing_policy="CUSTOM", custom_selector=selector)
++    router._pending_requests = [pending(0), pending(1)]
++
++    assert router.route_arrived_requests(0) == 2
++    assert [len(scheduler.request) for scheduler in schedulers] == [1, 1]
++    assert [decision["request_id"] for decision in selector.decisions] == [
++        "external-0",
++        "external-1",
++    ]
