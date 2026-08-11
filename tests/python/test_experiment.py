@@ -28,6 +28,8 @@ def test_bounded_milestone_has_28_unique_serial_runs():
         spec.seed for spec in specs if spec.arrival_rate_rps == MILESTONE_CI_RATE
     } == set(MILESTONE_SEEDS)
     assert sum(spec.seed == MILESTONE_SEEDS[0] for spec in specs) == 12
+    assert all(spec.seed == MILESTONE_SEEDS[0] for spec in specs[:12])
+    assert {spec.arrival_rate_rps for spec in specs[:12]} == {1.0, 1.6, 2.2}
 
 
 def test_run_key_is_stable_and_path_safe():

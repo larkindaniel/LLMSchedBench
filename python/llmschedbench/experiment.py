@@ -97,6 +97,7 @@ def build_milestone_specs(scenario: str = "balanced") -> list[RunSpec]:
     return sorted(
         values,
         key=lambda item: (
+            item.seed != primary_seed,
             item.arrival_rate_rps,
             item.seed,
             POLICIES.index(item.policy),
