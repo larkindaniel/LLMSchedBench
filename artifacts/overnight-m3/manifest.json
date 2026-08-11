@@ -1,28 +1,28 @@
 {
   "artifacts": {
     "aggregate.json": {
-      "sha256": "c29e7be213da25c29dce85ead30ac4a7dde76e11a884af2beea1ae7eab6d9097",
-      "size": 1440
+      "sha256": "82e9945c112ef6a5cbd8bbf2eaeed74e9d8ac1be68a4a00964f14f43d695596b",
+      "size": 1644
     },
     "figures/ci-slice.svg": {
       "sha256": "a845873a27c87737f71cebe91b7b173fc34166ca938abe7b907e4de49bd71f90",
       "size": 1362
     },
     "figures/load-sweep.svg": {
-      "sha256": "fa808874160c8f756dcaf924b278a691609e2927df1140d6117fa77bd7503788",
-      "size": 2730
+      "sha256": "29d229e75a8011327b9bf8304dc4936aaeecacd2f79aafb42b9dc928ce525a93",
+      "size": 3118
     },
     "report.md": {
-      "sha256": "ed0eda5aa1cad923dd6c1bf3c3f602fbf74243e47496ed2318b4cd0540fe6fb8",
-      "size": 2911
+      "sha256": "72a6ae540c49f87a7d6eced0a4260e70bdb679d463134db91185bb2ea8abcf28",
+      "size": 3199
     },
     "run-summaries.jsonl": {
-      "sha256": "6c53725d228ff2dacd0385656427a9fee83259a8970d541daa74ba57242715bd",
-      "size": 3373
+      "sha256": "442cb21610359d3eaaa5a67cd12fd4387def80909e729606783a9d904e44c822",
+      "size": 13532
     }
   },
-  "completed_runs": 1,
-  "generated_at": "2026-08-11T03:57:41.689366Z",
+  "completed_runs": 4,
+  "generated_at": "2026-08-11T04:35:03.309548Z",
   "planned_runs": 28,
   "schema_version": "1.0.0"
 }

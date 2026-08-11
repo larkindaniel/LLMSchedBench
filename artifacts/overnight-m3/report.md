@@ -1,10 +1,10 @@
 # LLMSchedBench bounded simulation report
 
-Generated: 2026-08-11T03:57:41.689366Z
+Generated: 2026-08-11T04:35:03.309548Z
 
 ## Scope and completion
 
-This report contains 1 of 28 planned immutable simulator runs. The primary load matrix uses seed 1729 and is reported separately from the five-seed 1.6-arrivals/s confidence-interval slice.
+This report contains 4 of 28 planned immutable simulator runs. The primary load matrix uses seed 1729 and is reported separately from the five-seed 1.6-arrivals/s confidence-interval slice.
 
 ## Single-seed load matrix
 
@@ -13,6 +13,9 @@ These values are descriptive single-seed results; they are not confidence interv
 | Load | Policy | p95 TTFT (ms) | p95 latency (ms) | SLO attainment | Prefix hit | Call goodput/s | Jain fairness | Horizon starvation | NPU util. |
 |---:|---|---:|---:|---:|---:|---:|---:|---:|---:|
 | 1 | least_loaded | 266.09 | 12792.65 | 100.00% | 52.25% | 1.300 | 0.604 | 23.53% | 84.74% |
+| 1 | cache_max | 271.24 | 12380.39 | 100.00% | 63.92% | 1.350 | 0.588 | 20.59% | 74.87% |
+| 1 | weighted_fair | 266.09 | 12792.65 | 100.00% | 52.25% | 1.300 | 0.604 | 23.53% | 84.74% |
+| 1 | slo_guarded_affinity | 271.24 | 12380.39 | 100.00% | 63.92% | 1.350 | 0.588 | 20.59% | 74.87% |
 
 ![Single-seed p95 TTFT](figures/load-sweep.svg)
 

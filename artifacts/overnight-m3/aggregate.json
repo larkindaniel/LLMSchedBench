@@ -1,11 +1,8 @@
 {
-  "completed_runs": 1,
+  "completed_runs": 4,
   "confidence_intervals": {},
-  "generated_at": "2026-08-11T03:57:41.689366Z",
+  "generated_at": "2026-08-11T04:35:03.309548Z",
   "missing_runs": [
-    "balanced-r1-s1729-cache-max",
-    "balanced-r1-s1729-slo-guarded-affinity",
-    "balanced-r1-s1729-weighted-fair",
     "balanced-r1p6-s1729-cache-max",
     "balanced-r1p6-s1729-least-loaded",
     "balanced-r1p6-s1729-slo-guarded-affinity",
@@ -34,6 +31,9 @@
   "planned_runs": 28,
   "schema_version": "1.0.0",
   "source_run_manifest_sha256": {
-    "balanced-r1-s1729-least-loaded": "14442a64706f7d0ffb8733742616843f0933d71c7019f6ecefec0c6a02aa2c85"
+    "balanced-r1-s1729-cache-max": "dd7e6a8129fa7d820a8c20edf8416cc8b1daee788c83a4225043e9057204098a",
+    "balanced-r1-s1729-least-loaded": "14442a64706f7d0ffb8733742616843f0933d71c7019f6ecefec0c6a02aa2c85",
+    "balanced-r1-s1729-slo-guarded-affinity": "37159bf4baad18028da0a264c2adc1d33906cec96827d385f73d4fd33e8a7552",
+    "balanced-r1-s1729-weighted-fair": "ce8c990d77cfcba031fe16ad404057c709029b3ca89e8d48643b88b5c09c3f4a"
   }
 }
