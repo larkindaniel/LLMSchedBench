@@ -77,6 +77,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         tenant_slo_ns=slo_ns,
         service_rates=service_rates,
     )
+    router.reset(int(scenario["seed"]))
 
     if "--request-routing-policy" in serving_args:
         index = serving_args.index("--request-routing-policy")

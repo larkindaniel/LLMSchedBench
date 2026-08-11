@@ -28,6 +28,7 @@ from .data.sources import (
     sha256_file,
     source_asset_paths,
 )
+from .experiment import RunSpec, SerialExperimentRunner, build_milestone_specs
 from .saturation import parse_simulator_utilization, rescale_workload_arrivals
 from .scenario import compile_scenario
 from .schema import SCHEMA_VERSION, write_parquet, write_parquet_stream
@@ -110,9 +111,27 @@ def build_parser() -> argparse.ArgumentParser:
     run = commands.add_parser("run")
     run.add_argument("scenario")
     run.add_argument("--policy", required=True, choices=POLICIES)
+    run.add_argument("--arrival-rate-rps", type=float)
+    run.add_argument("--seed", type=int)
+    run.add_argument("--run-root", default="runs/manual")
+    run.add_argument(
+        "--service-rates",
+        default="runs/calibration/llama31-8b-rtxpro6000-v1/service-rates.json",
+    )
+    run.add_argument("--simulator-image", default="llmschedbench-simulator")
+    run.add_argument("--no-prepare", action="store_true")
 
     sweep = commands.add_parser("sweep")
     sweep.add_argument("scenario")
+    sweep.add_argument("--milestone", choices=("overnight-m3",), required=True)
+    sweep.add_argument("--run-root", default="runs/overnight-m3")
+    sweep.add_argument(
+        "--service-rates",
+        default="runs/calibration/llama31-8b-rtxpro6000-v1/service-rates.json",
+    )
+    sweep.add_argument("--simulator-image", default="llmschedbench-simulator")
+    sweep.add_argument("--max-hours", type=float, default=9.0)
+    sweep.add_argument("--no-prepare", action="store_true")
 
     report = commands.add_parser("report")
     report.add_argument("run_directory")
@@ -346,6 +365,43 @@ def main(argv: Sequence[str] | None = None) -> int:
         write_calibration(value, args.output)
         print(json.dumps(value, sort_keys=True))
         return 0
+    if args.command == "run":
+        scenario = compile_scenario(args.scenario)
+        rate = float(
+            args.arrival_rate_rps
+            if args.arrival_rate_rps is not None
+            else scenario["trace"]["arrival_rate_rps"]
+        )
+        seed = int(args.seed if args.seed is not None else scenario["seed"])
+        runner = SerialExperimentRunner(
+            Path.cwd(),
+            args.scenario,
+            run_root=args.run_root,
+            service_rates=args.service_rates,
+            simulator_image=args.simulator_image,
+        )
+        summary = runner.run_serial(
+            [RunSpec(str(scenario["name"]), args.policy, rate, seed)],
+            prepare=not args.no_prepare,
+        )
+        print(json.dumps(summary, sort_keys=True))
+        return 0 if not summary["failed"] else 1
+    if args.command == "sweep":
+        scenario = compile_scenario(args.scenario)
+        runner = SerialExperimentRunner(
+            Path.cwd(),
+            args.scenario,
+            run_root=args.run_root,
+            service_rates=args.service_rates,
+            simulator_image=args.simulator_image,
+        )
+        summary = runner.run_serial(
+            build_milestone_specs(str(scenario["name"])),
+            max_hours=args.max_hours,
+            prepare=not args.no_prepare,
+        )
+        print(json.dumps(summary, sort_keys=True))
+        return 0 if not summary["failed"] else 1
     return _not_implemented(args.command)
 
 

@@ -24,6 +24,11 @@ def test_bridge_routes_global_ready_queue_and_updates_snapshot_load():
 
     assert [decision["request_id"] for decision in decisions] == ["a", "b"]
     assert [decision["worker_id"] for decision in decisions] == ["0", "1"]
+    assert [decision["tenant"] for decision in decisions] == ["chat", "chat"]
+    assert [decision["session_id"] for decision in decisions] == [
+        "session-a",
+        "session-b",
+    ]
     assert len(router.decisions) == 2
 
 

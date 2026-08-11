@@ -126,9 +126,16 @@ class PolicyRouter:
             record = {
                 "admit": bool(decision.admit),
                 "cache_hit_tokens": int(decision.cache_hit_tokens),
+                "current_time_ns": int(current_time_ns),
                 "predicted_ttft_seconds": float(decision.predicted_ttft_seconds),
                 "reason_code": decision.reason_code,
                 "request_id": decision.request_id,
+                "session_id": str(
+                    ready[decision.request_id].get(
+                        "session_id", decision.request_id
+                    )
+                ),
+                "tenant": str(ready[decision.request_id].get("tenant", "chat")),
                 "worker_id": decision.worker_id,
             }
             emitted.append(record)

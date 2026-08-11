@@ -93,3 +93,22 @@ The saturation-search point runner uses the same two-worker cluster and a
 ```bash
 ./scripts/saturation-point.sh <arrival-rate-rps>
 ```
+
+## Bounded serial milestone
+
+The first benchmark milestone is a resumable 28-run subset: all four policies
+at 1.0, 1.6, and 2.2 arrivals/s for seed 1729, plus four additional seeds at
+1.6 arrivals/s. Workloads are shared by scenario/load/seed, while each policy
+run receives an immutable directory with resolved configuration, request-map,
+routing decisions, simulator output, logs, and checksums. Simulations run one
+at a time.
+
+```bash
+llmschedbench sweep scenarios/balanced.yaml \
+  --milestone overnight-m3 \
+  --max-hours 9
+```
+
+Completed runs are checksum-validated and skipped on resume. Failed attempts
+are retained under `runs/overnight-m3/failed/` for diagnosis rather than
+overwritten.
