@@ -112,3 +112,16 @@ llmschedbench sweep scenarios/balanced.yaml \
 Completed runs are checksum-validated and skipped on resume. Failed attempts
 are retained under `runs/overnight-m3/failed/` for diagnosis rather than
 overwritten.
+
+From the supported Python 3.11/C++20/Docker environment, the complete bounded
+milestone—including missing public-data preparation, calibration, the serial
+sweep, validation, figures, and report—is reproduced with:
+
+```bash
+./scripts/reproduce-headline.sh
+```
+
+The command is resumable and exits unsuccessfully if the nine-hour limit is
+reached before all 28 runs are valid. Re-run the same command to continue from
+the checksum-validated artifacts. Use `--preflight-only` to validate the local
+environment and test suite without starting a simulator run.
