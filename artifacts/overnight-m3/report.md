@@ -1,10 +1,10 @@
 # LLMSchedBench bounded simulation report
 
-Generated: 2026-08-11T04:35:03.309548Z
+Generated: 2026-08-11T06:18:48.645515Z
 
 ## Scope and completion
 
-This report contains 4 of 28 planned immutable simulator runs. The primary load matrix uses seed 1729 and is reported separately from the five-seed 1.6-arrivals/s confidence-interval slice.
+This report contains 12 of 28 planned immutable simulator runs. The primary load matrix uses seed 1729 and is reported separately from the five-seed 1.6-arrivals/s confidence-interval slice.
 
 ## Single-seed load matrix
 
@@ -16,6 +16,14 @@ These values are descriptive single-seed results; they are not confidence interv
 | 1 | cache_max | 271.24 | 12380.39 | 100.00% | 63.92% | 1.350 | 0.588 | 20.59% | 74.87% |
 | 1 | weighted_fair | 266.09 | 12792.65 | 100.00% | 52.25% | 1.300 | 0.604 | 23.53% | 84.74% |
 | 1 | slo_guarded_affinity | 271.24 | 12380.39 | 100.00% | 63.92% | 1.350 | 0.588 | 20.59% | 74.87% |
+| 1.6 | least_loaded | 253.77 | 12154.71 | 100.00% | 54.51% | 1.600 | 0.746 | 31.03% | 89.42% |
+| 1.6 | cache_max | 225.85 | 12378.83 | 100.00% | 63.92% | 1.760 | 0.673 | 26.67% | 86.56% |
+| 1.6 | weighted_fair | 253.77 | 12154.71 | 100.00% | 54.51% | 1.600 | 0.746 | 31.03% | 89.42% |
+| 1.6 | slo_guarded_affinity | 225.85 | 12378.83 | 100.00% | 63.92% | 1.760 | 0.673 | 26.67% | 86.56% |
+| 2.2 | least_loaded | 292.19 | 12011.83 | 100.00% | 50.82% | 1.760 | 0.571 | 40.74% | 87.85% |
+| 2.2 | cache_max | 226.45 | 12299.39 | 100.00% | 63.92% | 1.760 | 0.567 | 42.86% | 72.78% |
+| 2.2 | weighted_fair | 292.19 | 12011.83 | 100.00% | 50.82% | 1.760 | 0.571 | 40.74% | 87.85% |
+| 2.2 | slo_guarded_affinity | 226.45 | 12299.39 | 100.00% | 63.92% | 1.760 | 0.567 | 42.86% | 72.78% |
 
 ![Single-seed p95 TTFT](figures/load-sweep.svg)
 
@@ -25,6 +33,10 @@ Intervals are two-sided 95% Student-t intervals across deterministic workload se
 
 | Policy | Seeds | p95 TTFT mean [95% CI] ms | SLO attainment mean [95% CI] | Prefix hit mean [95% CI] | Goodput mean [95% CI] |
 |---|---:|---:|---:|---:|---:|
+| least_loaded | 1 | 253.77 [253.77, 253.77] | 100.00 [100.00, 100.00]% | 54.51 [54.51, 54.51]% | 1.60 [1.60, 1.60] |
+| cache_max | 1 | 225.85 [225.85, 225.85] | 100.00 [100.00, 100.00]% | 63.92 [63.92, 63.92]% | 1.76 [1.76, 1.76] |
+| weighted_fair | 1 | 253.77 [253.77, 253.77] | 100.00 [100.00, 100.00]% | 54.51 [54.51, 54.51]% | 1.60 [1.60, 1.60] |
+| slo_guarded_affinity | 1 | 225.85 [225.85, 225.85] | 100.00 [100.00, 100.00]% | 63.92 [63.92, 63.92]% | 1.76 [1.76, 1.76] |
 
 ![Five-seed p95 TTFT](figures/ci-slice.svg)
 
