@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+<rect width="100%" height="100%" fill="white"/>
+<text x="450" y="30" text-anchor="middle" font-family="sans-serif" font-size="21" font-weight="600">Single-seed p95 TTFT across offered load</text>
+<line x1="90" y1="430.0" x2="860" y2="430.0" stroke="#e5e7eb"/>
+<text x="78" y="435.0" text-anchor="end" font-family="sans-serif" font-size="12">0</text>
+<line x1="90" y1="355.0" x2="860" y2="355.0" stroke="#e5e7eb"/>
+<text x="78" y="360.0" text-anchor="end" font-family="sans-serif" font-size="12">60</text>
+<line x1="90" y1="280.0" x2="860" y2="280.0" stroke="#e5e7eb"/>
+<text x="78" y="285.0" text-anchor="end" font-family="sans-serif" font-size="12">119</text>
+<line x1="90" y1="205.0" x2="860" y2="205.0" stroke="#e5e7eb"/>
+<text x="78" y="210.0" text-anchor="end" font-family="sans-serif" font-size="12">179</text>
+<line x1="90" y1="130.0" x2="860" y2="130.0" stroke="#e5e7eb"/>
+<text x="78" y="135.0" text-anchor="end" font-family="sans-serif" font-size="12">238</text>
+<line x1="90" y1="55.0" x2="860" y2="55.0" stroke="#e5e7eb"/>
+<text x="78" y="60.0" text-anchor="end" font-family="sans-serif" font-size="12">298</text>
+<line x1="90.0" y1="55" x2="90.0" y2="430" stroke="#f3f4f6"/>
+<text x="90.0" y="456" text-anchor="middle" font-family="sans-serif" font-size="13">1</text>
+<line x1="475.0" y1="55" x2="475.0" y2="430" stroke="#f3f4f6"/>
+<text x="475.0" y="456" text-anchor="middle" font-family="sans-serif" font-size="13">1.6</text>
+<line x1="860.0" y1="55" x2="860.0" y2="430" stroke="#f3f4f6"/>
+<text x="860.0" y="456" text-anchor="middle" font-family="sans-serif" font-size="13">2.2</text>
+<polyline points="90.0,95.2" fill="none" stroke="#2563eb" stroke-width="3"/>
+<circle cx="90.0" cy="95.2" r="5" fill="#2563eb"/>
+<line x1="105" y1="498" x2="133" y2="498" stroke="#2563eb" stroke-width="4"/>
+<text x="141" y="503" font-family="sans-serif" font-size="12">least_loaded</text>
+<line x1="300" y1="498" x2="328" y2="498" stroke="#16a34a" stroke-width="4"/>
+<text x="336" y="503" font-family="sans-serif" font-size="12">cache_max</text>
+<line x1="495" y1="498" x2="523" y2="498" stroke="#ea580c" stroke-width="4"/>
+<text x="531" y="503" font-family="sans-serif" font-size="12">weighted_fair</text>
+<line x1="690" y1="498" x2="718" y2="498" stroke="#9333ea" stroke-width="4"/>
+<text x="726" y="503" font-family="sans-serif" font-size="12">slo_guarded_affinity</text>
+<text x="475.0" y="468" text-anchor="middle" font-family="sans-serif" font-size="14">Top-level arrivals per second</text>
+<text x="22" y="242.5" transform="rotate(-90 22 242.5)" text-anchor="middle" font-family="sans-serif" font-size="14">p95 TTFT (ms)</text>
+</svg>

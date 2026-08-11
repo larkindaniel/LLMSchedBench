@@ -29,6 +29,7 @@ from .data.sources import (
     source_asset_paths,
 )
 from .experiment import RunSpec, SerialExperimentRunner, build_milestone_specs
+from .reporting import generate_report
 from .saturation import parse_simulator_utilization, rescale_workload_arrivals
 from .scenario import compile_scenario
 from .schema import SCHEMA_VERSION, write_parquet, write_parquet_stream
@@ -135,6 +136,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     report = commands.add_parser("report")
     report.add_argument("run_directory")
+    report.add_argument("--output", default="artifacts/overnight-m3")
+    report.add_argument(
+        "--cluster-config", default="configs/cluster/benchmark_2worker.json"
+    )
+    report.add_argument("--require-complete", action="store_true")
 
     validate = commands.add_parser("validate")
     validate.add_argument("scenario")
@@ -402,6 +408,16 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         print(json.dumps(summary, sort_keys=True))
         return 0 if not summary["failed"] else 1
+    if args.command == "report":
+        manifest = generate_report(
+            args.run_directory,
+            args.output,
+            cluster_config=args.cluster_config,
+        )
+        print(json.dumps(manifest, sort_keys=True))
+        if args.require_complete and manifest["completed_runs"] != manifest["planned_runs"]:
+            return 1
+        return 0
     return _not_implemented(args.command)
 
 

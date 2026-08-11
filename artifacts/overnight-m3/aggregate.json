@@ -1,0 +1,39 @@
+{
+  "completed_runs": 1,
+  "confidence_intervals": {},
+  "generated_at": "2026-08-11T03:57:41.689366Z",
+  "missing_runs": [
+    "balanced-r1-s1729-cache-max",
+    "balanced-r1-s1729-slo-guarded-affinity",
+    "balanced-r1-s1729-weighted-fair",
+    "balanced-r1p6-s1729-cache-max",
+    "balanced-r1p6-s1729-least-loaded",
+    "balanced-r1p6-s1729-slo-guarded-affinity",
+    "balanced-r1p6-s1729-weighted-fair",
+    "balanced-r1p6-s1730-cache-max",
+    "balanced-r1p6-s1730-least-loaded",
+    "balanced-r1p6-s1730-slo-guarded-affinity",
+    "balanced-r1p6-s1730-weighted-fair",
+    "balanced-r1p6-s1731-cache-max",
+    "balanced-r1p6-s1731-least-loaded",
+    "balanced-r1p6-s1731-slo-guarded-affinity",
+    "balanced-r1p6-s1731-weighted-fair",
+    "balanced-r1p6-s1732-cache-max",
+    "balanced-r1p6-s1732-least-loaded",
+    "balanced-r1p6-s1732-slo-guarded-affinity",
+    "balanced-r1p6-s1732-weighted-fair",
+    "balanced-r1p6-s1733-cache-max",
+    "balanced-r1p6-s1733-least-loaded",
+    "balanced-r1p6-s1733-slo-guarded-affinity",
+    "balanced-r1p6-s1733-weighted-fair",
+    "balanced-r2p2-s1729-cache-max",
+    "balanced-r2p2-s1729-least-loaded",
+    "balanced-r2p2-s1729-slo-guarded-affinity",
+    "balanced-r2p2-s1729-weighted-fair"
+  ],
+  "planned_runs": 28,
+  "schema_version": "1.0.0",
+  "source_run_manifest_sha256": {
+    "balanced-r1-s1729-least-loaded": "14442a64706f7d0ffb8733742616843f0933d71c7019f6ecefec0c6a02aa2c85"
+  }
+}
