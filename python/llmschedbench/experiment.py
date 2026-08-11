@@ -462,7 +462,7 @@ cp -a /workspace/python/llmschedbench/. \\
             f"/workspace/{relative_attempt}/simulator-results.csv",
             "--run-id",
             run_id,
-            "--cleanup-run-inputs",
+            "--cleanup-inputs",
             "--log-interval",
             "1",
             "--log-level",

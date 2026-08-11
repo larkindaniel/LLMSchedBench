@@ -8,11 +8,14 @@ from llmschedbench.experiment import (
     POLICIES,
     REQUIRED_RUN_OUTPUTS,
     RunSpec,
+    SerialExperimentRunner,
     build_milestone_specs,
     rate_label,
     sha256_file,
     validate_completed_run,
 )
+
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_bounded_milestone_has_28_unique_serial_runs():
@@ -48,3 +51,14 @@ def test_completed_run_validation_checks_every_output(tmp_path: Path):
     (tmp_path / REQUIRED_RUN_OUTPUTS[0]).write_text("corrupt", encoding="utf-8")
     with pytest.raises(ValueError, match="mismatch"):
         validate_completed_run(tmp_path)
+
+
+def test_simulator_command_uses_pinned_cleanup_flag():
+    runner = SerialExperimentRunner(ROOT, "scenarios/balanced.yaml")
+    command = runner._run_command(
+        RunSpec("balanced", "least_loaded", 1.0, 1729),
+        ROOT / "runs" / "test.incomplete",
+    )
+
+    assert "--cleanup-inputs" in command[-1]
+    assert "--cleanup-run-inputs" not in command[-1]
