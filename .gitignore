@@ -1,4 +1,12 @@
+# OS and editor files
 .DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local configuration and credentials
 .env
 .env.*
 !.env.example
@@ -9,17 +17,43 @@ credentials*.json
 *.key
 *.p12
 *.pfx
+
+# Python environments, caches, and coverage
 .venv/
+venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.ruff_cache/
 .hypothesis/
+.mypy_cache/
+.pyright/
+.tox/
+.nox/
 .coverage
+.coverage.*
+coverage.xml
 htmlcov/
-build/
 dist/
 *.egg-info/
 _skbuild/
+
+# Native build output
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+
+# Downloaded traces and generated benchmark state
 data/raw/
 data/processed/
 runs/
+
+# Keep the published result set; ignore ad hoc report output.
+artifacts/*
+!artifacts/overnight-m3/
+!artifacts/overnight-m3/**
+
+# Interrupted atomic writes
+*.part
