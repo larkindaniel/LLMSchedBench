@@ -42,6 +42,10 @@ export PYTHONPATH="${REPO_ROOT}/python"
   "${REPO_ROOT}/scenarios/balanced.yaml" >/dev/null
 "${HOST_PYTHON}" -m pytest -q "${REPO_ROOT}/tests/python"
 "${HOST_PYTHON}" -m ruff check "${REPO_ROOT}"
+cmake -S "${REPO_ROOT}" -B "${REPO_ROOT}/build/headline-tests" \
+  -DCMAKE_PREFIX_PATH="$("${HOST_PYTHON}" -m pybind11 --cmakedir)"
+cmake --build "${REPO_ROOT}/build/headline-tests"
+ctest --test-dir "${REPO_ROOT}/build/headline-tests" --output-on-failure
 
 if [[ ${PREFLIGHT_ONLY} -eq 1 ]]; then
   echo "LLMSchedBench headline preflight passed."
