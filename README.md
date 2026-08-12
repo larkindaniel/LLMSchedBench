@@ -1,201 +1,177 @@
 # LLMSchedBench
 
-LLMSchedBench is a reproducible benchmark for evaluating request-routing and
-admission policies across shared chat, coding-agent, and API/batch LLM
-workloads.
+LLMSchedBench is a trace-driven benchmark for comparing how LLM requests are
+routed across shared inference workers. It combines chat, coding-agent, and
+API/batch traffic, replays the workload in
+[LLMServingSim](https://github.com/casys-kaist/LLMServingSim), and reports the
+latency, cache reuse, fairness, goodput, starvation, and utilization tradeoffs
+of each routing policy.
 
-The benchmark combines production-derived arrival and cache-reuse traces with
-LLMServingSim execution modeling. Scheduling policy state and decisions live in
-a small C++20 library exposed to Python through pybind11; Python owns data
-normalization, experiment orchestration, metrics, and reporting.
+Use it to answer questions such as:
 
-## Status
+- Does cache-aware routing improve time to first token without hurting
+  fairness?
+- How does a policy behave as offered load increases?
+- Do observed differences persist across deterministic workload seeds?
+- Which requests or tenants benefit—and which are left waiting?
 
-The reproducible environment and first three bounded implementation milestones
-are operational. Both public sources are checksummed and normalized, the pinned
-simulator backend builds and reproduces its chat and agentic examples, and all
-four C++ policies run through the tested CUSTOM-routing bridge. The completed
-`overnight-m3` milestone contains 28 immutable simulator runs: a three-load,
-four-policy matrix at seed 1729 and a five-seed policy comparison at 1.6
-arrivals/s. The main report is presented below and retained as a
-[standalone artifact](artifacts/overnight-m3/report.md). The broader
-scenario/ablation matrix and real-vLLM validation remain on the roadmap.
+The benchmark currently includes four policies:
 
-## Milestone report
+| Policy | Routing strategy |
+|---|---|
+| `least_loaded` | Sends each request to the worker with the least queued work. |
+| `cache_max` | Maximizes reusable prefix tokens, then uses load as a tie-breaker. |
+| `weighted_fair` | Orders requests by tenant-weighted service and routes to the least-loaded worker. |
+| `slo_guarded_affinity` | Prefers a warm-cache worker when its predicted TTFT meets the SLO; otherwise selects the fastest predicted worker. |
 
-The bounded milestone completed all 28 planned runs with no failures: all four
-policies at 1.0, 1.6, and 2.2 arrivals/s for seed 1729, plus all four policies
-at 1.6 arrivals/s for seeds 1730–1733. The load matrix is descriptive
-single-seed evidence; the primary comparison uses two-sided 95% Student-t
-intervals across five deterministic seeds.
+## How it works
 
-### Five-seed comparison at 1.6 arrivals/s
+1. Fetch and normalize checksummed Qwen-Bailian and TraceLab traces.
+2. Build a deterministic mixed workload from a YAML or JSON scenario.
+3. Calibrate simulated prefill and decode service rates.
+4. Replay the same workload through each routing policy, one run at a time.
+5. Store immutable run inputs, decisions, outputs, logs, and checksums.
+6. Produce per-run metrics, cross-seed confidence intervals, SVG figures, and
+   a Markdown report.
 
-| Policy | Seeds | p95 TTFT mean [95% CI] ms | SLO attainment mean [95% CI] | Prefix hit mean [95% CI] | Goodput mean [95% CI] |
-|---|---:|---:|---:|---:|---:|
-| `least_loaded` | 5 | 267.57 [201.97, 333.16] | 100.00 [100.00, 100.00]% | 44.45 [35.39, 53.52]% | 1.76 [1.33, 2.19] |
-| `cache_max` | 5 | 238.65 [170.98, 306.33] | 100.00 [100.00, 100.00]% | 52.80 [40.48, 65.11]% | 1.84 [1.35, 2.33] |
-| `weighted_fair` | 5 | 267.57 [201.97, 333.16] | 100.00 [100.00, 100.00]% | 44.45 [35.39, 53.52]% | 1.76 [1.33, 2.19] |
-| `slo_guarded_affinity` | 5 | 238.65 [170.98, 306.33] | 100.00 [100.00, 100.00]% | 52.80 [40.48, 65.11]% | 1.84 [1.35, 2.33] |
+The policy engine is written in C++20 and exposed to Python with pybind11.
+Python handles data preparation, experiment orchestration, validation, and
+reporting. The simulator runs in a pinned Linux AMD64 Docker image.
+
+## Published results
+
+The included experiment contains 28 runs over a controlled 60% chat, 25%
+coding-agent, and 15% API/batch workload on two simulated RTX PRO 6000 workers
+serving Llama 3.1 8B.
+
+At 1.6 top-level arrivals per second, each policy was evaluated across five
+deterministic seeds. Values below are means with two-sided 95% Student-t
+confidence intervals.
+
+| Policy | p95 TTFT (ms) | Prefix hit rate | SLO goodput (calls/s) |
+|---|---:|---:|---:|
+| `least_loaded` | 267.57 [201.97, 333.16] | 44.45% [35.39%, 53.52%] | 1.76 [1.33, 2.19] |
+| `cache_max` | 238.65 [170.98, 306.33] | 52.80% [40.48%, 65.11%] | 1.84 [1.35, 2.33] |
+| `weighted_fair` | 267.57 [201.97, 333.16] | 44.45% [35.39%, 53.52%] | 1.76 [1.33, 2.19] |
+| `slo_guarded_affinity` | 238.65 [170.98, 306.33] | 52.80% [40.48%, 65.11%] | 1.84 [1.35, 2.33] |
 
 ![Five-seed p95 TTFT confidence intervals](artifacts/overnight-m3/figures/ci-slice.svg)
 
-The cache-oriented pair has lower mean p95 TTFT, higher mean prefix reuse, and
-higher mean goodput in this slice. The confidence intervals overlap
-substantially, however, so the bounded experiment does not establish a
-statistically decisive ranking. `least_loaded` and `weighted_fair` made the
-same admit/worker choices across the five seeds. `cache_max` and
-`slo_guarded_affinity` did so in four seeds; two worker assignments changed in
-the fifth without changing the aggregate metrics. This limited separation is
-one reason the roadmap retains explicit affinity, fairness, and prefix-reuse
-ablations.
+The cache-oriented policies have better means in this workload, but the
+intervals overlap substantially. These results therefore do not establish a
+decisive policy ranking. The controlled workload also produced limited
+separation between each policy pair, motivating broader cache-reuse, affinity,
+and fairness ablations.
 
-### Descriptive seed-1729 load matrix
+See the [full report](artifacts/overnight-m3/report.md) for the three-load
+single-seed matrix, metric definitions, and limitations. Machine-readable
+results are available as [per-run summaries](artifacts/overnight-m3/run-summaries.jsonl),
+[aggregate confidence intervals](artifacts/overnight-m3/aggregate.json), and a
+[checksummed artifact manifest](artifacts/overnight-m3/manifest.json).
 
-| Load | Policy | p95 TTFT (ms) | p95 latency (ms) | SLO attainment | Prefix hit | Call goodput/s | Jain fairness | Horizon starvation | NPU util. |
-|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1.0 | `least_loaded` | 266.09 | 12792.65 | 100.00% | 52.25% | 1.300 | 0.604 | 23.53% | 84.74% |
-| 1.0 | `cache_max` | 271.24 | 12380.39 | 100.00% | 63.92% | 1.350 | 0.588 | 20.59% | 74.87% |
-| 1.0 | `weighted_fair` | 266.09 | 12792.65 | 100.00% | 52.25% | 1.300 | 0.604 | 23.53% | 84.74% |
-| 1.0 | `slo_guarded_affinity` | 271.24 | 12380.39 | 100.00% | 63.92% | 1.350 | 0.588 | 20.59% | 74.87% |
-| 1.6 | `least_loaded` | 253.77 | 12154.71 | 100.00% | 54.51% | 1.600 | 0.746 | 31.03% | 89.42% |
-| 1.6 | `cache_max` | 225.85 | 12378.83 | 100.00% | 63.92% | 1.760 | 0.673 | 26.67% | 86.56% |
-| 1.6 | `weighted_fair` | 253.77 | 12154.71 | 100.00% | 54.51% | 1.600 | 0.746 | 31.03% | 89.42% |
-| 1.6 | `slo_guarded_affinity` | 225.85 | 12378.83 | 100.00% | 63.92% | 1.760 | 0.673 | 26.67% | 86.56% |
-| 2.2 | `least_loaded` | 292.19 | 12011.83 | 100.00% | 50.82% | 1.760 | 0.571 | 40.74% | 87.85% |
-| 2.2 | `cache_max` | 226.45 | 12299.39 | 100.00% | 63.92% | 1.760 | 0.567 | 42.86% | 72.78% |
-| 2.2 | `weighted_fair` | 292.19 | 12011.83 | 100.00% | 50.82% | 1.760 | 0.571 | 40.74% | 87.85% |
-| 2.2 | `slo_guarded_affinity` | 226.45 | 12299.39 | 100.00% | 63.92% | 1.760 | 0.567 | 42.86% | 72.78% |
+## Quick start
 
-![Single-seed p95 TTFT across offered load](artifacts/overnight-m3/figures/load-sweep.svg)
+### Requirements
 
-### Definitions and limitations
-
-- TTFT and completion latency percentiles are computed over simulator call
-  rows. Tenant-level values remain in the machine-readable summaries.
-- SLO attainment means TTFT is at or below the scenario-defined tenant SLO.
-  Horizon starvation separately measures calls released but not completed by
-  the fixed offered-load horizon.
-- Goodput counts SLO-attaining calls completed during the fixed measurement
-  window. Agent sessions can contribute multiple dependent calls.
-- Prefix hit rate is avoided prompt tokens divided by input tokens and is
-  cross-checked against the external routing decisions.
-- Jain fairness is calculated over tenant token service normalized by the
-  scenario weights. NPU utilization is active NPU-seconds divided by simulated
-  duration and worker count.
-- These are Linux AMD64 simulator measurements under emulation on Apple
-  Silicon, not real-GPU measurements. The 60/25/15 tenant mix, SLOs, cluster,
-  and service rates are controlled assumptions.
-
-Every summary traces to its run manifest, workload, decision log, and simulator
-result hashes. See the [JSONL summaries](artifacts/overnight-m3/run-summaries.jsonl),
-[aggregate intervals](artifacts/overnight-m3/aggregate.json), and
-[artifact manifest](artifacts/overnight-m3/manifest.json) for the complete
-machine-readable evidence.
-
-## Development setup
-
-The supported development runtime is Python 3.11 with a C++20 compiler and
-CMake 3.22 or newer.
+- Python 3.11
+- CMake 3.24 or newer and a C++20 compiler
+- Docker with Linux AMD64 image support
 
 ```bash
+git clone --recurse-submodules https://github.com/larkindaniel/LLMSchedBench.git
+cd LLMSchedBench
+
 python3.11 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -e '.[dev]'
-pytest
-cmake -S . -B build/cpp-tests -G Ninja \
-  -DCMAKE_PREFIX_PATH="$(python -m pybind11 --cmakedir)"
-cmake --build build/cpp-tests
-ctest --test-dir build/cpp-tests --output-on-failure
+
+./scripts/reproduce-headline.sh --preflight-only
 ```
 
-To inspect the command surface after installation:
+The preflight validates the scenario, Python suite, lint, native build, and C++
+tests without running the simulator.
+
+### Reproduce the published benchmark
 
 ```bash
-llmschedbench --help
-llmschedbench scenario compile scenarios/smoke.yaml
-llmschedbench data mix scenarios/smoke.yaml
-```
-
-Raw public datasets and generated benchmark runs are intentionally excluded
-from version control.
-
-The simulator has a separate locked legacy image because its upstream runtime
-is Linux AMD64:
-
-```bash
-docker build --platform linux/amd64 \
-  -f docker/simulator.Dockerfile \
-  -t llmschedbench-simulator .
-
-./scripts/apply-simulator-patch.sh
-```
-
-The patch is stored outside the pinned submodule, applies idempotently, exposes
-read-only request/worker snapshots to `PolicyRouter`, supports global deferral,
-and does not modify ASTRA-Sim. Applying it intentionally makes the submodule
-worktree show the reviewed compatibility diff.
-
-See [the data schema](docs/DATA_SCHEMA.md) and
-[the simulator regression record](docs/REGRESSIONS.md) for the exact semantics
-and compatibility notes.
-
-## Service-rate calibration
-
-The benchmark cluster uses two simulated RTX PRO 6000 workers serving
-Llama 3.1 8B. Generate a fresh immutable calibration run with:
-
-```bash
-CALIBRATION_RUN_NAME=<unique-name> ./scripts/calibrate-service-rates.sh
-```
-
-The workflow disables prefix caching, routes repeated input/output size points
-round-robin, and spaces requests so every arrival follows all prior
-completions. It fits prefill TTFT and post-first-token decode time separately,
-then writes checksummed rates and fit diagnostics to
-`runs/calibration/<unique-name>/service-rates.json`. Pass that file to the
-external simulator runner with `--service-rates`.
-
-The saturation-search point runner uses the same two-worker cluster and a
-0/0/1 accounting meter to recover the fraction of simulated NPU active time:
-
-```bash
-./scripts/saturation-point.sh <arrival-rate-rps>
-```
-
-## Bounded serial milestone
-
-The first benchmark milestone is a resumable 28-run subset: all four policies
-at 1.0, 1.6, and 2.2 arrivals/s for seed 1729, plus four additional seeds at
-1.6 arrivals/s. Workloads are shared by scenario/load/seed, while each policy
-run receives an immutable directory with resolved configuration, request-map,
-routing decisions, simulator output, logs, and checksums. Simulations run one
-at a time.
-
-```bash
-llmschedbench sweep scenarios/balanced.yaml \
-  --milestone overnight-m3 \
-  --max-hours 9
-```
-
-Completed runs are checksum-validated and skipped on resume. Failed attempts
-are retained under `runs/overnight-m3/failed/` for diagnosis rather than
-overwritten.
-
-From the supported Python 3.11/C++20/Docker environment, the complete bounded
-milestone—including missing public-data preparation, calibration, the serial
-sweep, validation, figures, and report—is reproduced with:
-
-```bash
+source .venv/bin/activate
 ./scripts/reproduce-headline.sh
 ```
 
-The command is resumable and exits unsuccessfully if the nine-hour limit is
-reached before all 28 runs are valid. Re-run the same command to continue from
-the checksum-validated artifacts. Use `--preflight-only` to validate the local
-environment and test suite without starting a simulator run.
+This command prepares the data and simulator, calibrates the benchmark cluster,
+runs the 28 experiments serially, and regenerates a completion-validated
+report. It is resumable: completed runs are checksum-validated and skipped.
+Expect several hours on Apple Silicon because the simulator uses Linux AMD64
+emulation.
 
-The compact result set is under `artifacts/overnight-m3/`. Raw run directories
-remain ignored because they are substantially larger and reproducible from
-checksummed inputs.
+### Run one policy
+
+After the data, image, and calibration outputs have been prepared by the
+reproduction workflow:
+
+```bash
+llmschedbench run scenarios/balanced.yaml \
+  --policy cache_max \
+  --arrival-rate-rps 1.6 \
+  --seed 1729 \
+  --run-root runs/manual
+```
+
+Each successful run creates an immutable directory containing the resolved
+scenario, generated workload, request map, routing decisions, simulator output,
+metrics inputs, logs, and SHA-256 checksums.
+
+### Define a workload
+
+Copy [scenarios/balanced.yaml](scenarios/balanced.yaml) and adjust its cluster,
+tenant weights and TTFT SLOs, traffic mix, arrival rate, seed, or coding-session
+shape. Validate the result before running it:
+
+```bash
+llmschedbench scenario compile scenarios/my-scenario.yaml
+```
+
+The canonical field definitions and normalization rules are documented in the
+[data schema](docs/DATA_SCHEMA.md).
+
+### Generate a report
+
+```bash
+llmschedbench report runs/overnight-m3 \
+  --output artifacts/overnight-m3 \
+  --require-complete
+```
+
+The report command validates completed run manifests and produces JSONL
+summaries, cross-seed intervals, static SVG figures, a Markdown report, and an
+artifact manifest.
+
+## Metrics
+
+- **TTFT and completion latency:** p50, p95, p99, and mean, globally and by
+  tenant.
+- **SLO attainment and goodput:** calls meeting the tenant TTFT target within
+  the fixed measurement window.
+- **Cache reuse:** avoided prompt tokens, cross-checked between routing
+  decisions and simulator output.
+- **Fairness:** Jain's index over tenant token service normalized by configured
+  weights.
+- **Starvation:** calls released but unfinished at the measurement horizon,
+  plus a separate severe TTFT-SLO measure.
+- **Load:** active NPU utilization and worker request/token imbalance.
+- **Agent workflows:** end-to-end completion latency for dependent coding-agent
+  call sequences.
+
+## Scope and limitations
+
+The published numbers are simulator measurements under Linux AMD64 emulation
+on Apple Silicon, not real-GPU measurements. SLOs, service rates, hardware,
+cluster size, and tenant mix are controlled assumptions. The current result set
+covers one base workload; agent-burst, low-prefix-reuse, explicit
+fairness/affinity ablations, and real-vLLM validation remain future work.
+
+Raw public data and generated runs are excluded from Git because they are bulky
+and reproducible from checksummed inputs. See the
+[roadmap](docs/ROADMAP.md) and [simulator regression record](docs/REGRESSIONS.md)
+for planned work and compatibility details.
