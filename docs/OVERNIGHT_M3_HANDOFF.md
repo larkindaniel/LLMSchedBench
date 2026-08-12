@@ -137,10 +137,12 @@ de329b5 results: checkpoint primary policy matrix
 fbe5e52 docs: add overnight milestone handoff
 a0a0424 test: verify headline reproduction workflow
 462eb89 results: publish five-seed milestone report
+c9652c4 docs: finalize overnight milestone handoff
+be80f5a chore: use neutral project naming
 ```
 
-The final handoff documentation commit is the current `HEAD`; resolve its hash
-with `git rev-parse --short HEAD`.
+The finalized milestone handoff is commit `c9652c4`; later commits only update
+repository naming or publication-facing documentation.
 
 ## Deferred work
 
