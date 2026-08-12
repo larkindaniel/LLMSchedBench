@@ -4,8 +4,7 @@ Last updated: 2026-08-11 20:27 EDT
 
 ## Outcome
 
-The bounded `overnight-m3` milestone is complete on branch
-`codex/overnight-m3`.
+The bounded `overnight-m3` milestone is complete on branch `overnight-m3`.
 
 - Completed immutable run directories: 28 of 28
 - Failed runs: 0
