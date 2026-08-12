@@ -20,10 +20,14 @@
 
 - [x] Locate the initial smoke-mix `R_sat` (2.0 arrivals/s at 90.05% average
   simulated NPU utilization).
-- [ ] Compile the fixed 0.5× / 0.8× / 1.1× load and scenario matrix.
-- Run five deterministic seeds and policy ablations.
-- Calculate latency, cache, fairness, goodput, and load metrics.
-- Generate confidence intervals and the static technical report.
+- [x] Complete the bounded 12-run, three-load/four-policy seed-1729 matrix.
+- [x] Run the four policies across five deterministic seeds at 1.6 arrivals/s.
+- [x] Calculate latency, TTFT, SLO, cache, fairness, starvation, utilization,
+  goodput, worker-variance, and agent-workflow metrics.
+- [x] Generate two-sided 95% Student-t intervals, static SVG figures, and the
+  traceable technical report.
+- [ ] Expand to the deferred 0.5× / 0.8× / 1.1× scenario matrix and explicit
+  fairness/affinity, low-prefix-reuse, and agent-burst ablations.
 
 ## Milestone 4: real-system validation
 

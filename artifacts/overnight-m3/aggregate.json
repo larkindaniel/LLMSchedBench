@@ -1,286 +1,269 @@
 {
-  "completed_runs": 12,
+  "completed_runs": 28,
   "confidence_intervals": {
     "cache_max": {
       "agent_workflow_p95_ms": {
-        "lower": 33886.6282574,
-        "margin": 0.0,
-        "mean": 33886.6282574,
-        "n": 1,
-        "upper": 33886.6282574
+        "lower": 26855.348257064958,
+        "margin": 33978.181860175035,
+        "mean": 60833.53011723999,
+        "n": 5,
+        "upper": 94811.71197741502
       },
       "average_npu_utilization": {
-        "lower": 0.865645299308432,
-        "margin": 0.0,
-        "mean": 0.865645299308432,
-        "n": 1,
-        "upper": 0.865645299308432
+        "lower": 0.4274019638047722,
+        "margin": 0.3440908981192256,
+        "mean": 0.7714928619239978,
+        "n": 5,
+        "upper": 1.1155837600432235
       },
       "cache_hit_rate": {
-        "lower": 0.6392,
-        "margin": 0.0,
-        "mean": 0.6392,
-        "n": 1,
-        "upper": 0.6392
+        "lower": 0.40482518231612313,
+        "margin": 0.12313481768387685,
+        "mean": 0.52796,
+        "n": 5,
+        "upper": 0.6510948176838769
       },
       "goodput_rps": {
-        "lower": 1.76,
-        "margin": 0.0,
-        "mean": 1.76,
-        "n": 1,
-        "upper": 1.76
+        "lower": 1.3484049640608644,
+        "margin": 0.4915950359391354,
+        "mean": 1.8399999999999999,
+        "n": 5,
+        "upper": 2.3315950359391353
       },
       "jain_weighted_service": {
-        "lower": 0.6727357355233777,
-        "margin": 0.0,
-        "mean": 0.6727357355233777,
-        "n": 1,
-        "upper": 0.6727357355233777
+        "lower": 0.3987934778372092,
+        "margin": 0.14320335510437301,
+        "mean": 0.5419968329415822,
+        "n": 5,
+        "upper": 0.6852001880459552
       },
       "latency_p95_ms": {
-        "lower": 12378.825182599992,
-        "margin": 0.0,
-        "mean": 12378.825182599992,
-        "n": 1,
-        "upper": 12378.825182599992
+        "lower": 7987.850244930287,
+        "margin": 8807.215882289685,
+        "mean": 16795.066127219972,
+        "n": 5,
+        "upper": 25602.282009509658
       },
       "slo_attainment_rate": {
         "lower": 1.0,
         "margin": 0.0,
         "mean": 1.0,
-        "n": 1,
+        "n": 5,
         "upper": 1.0
       },
       "starvation_rate": {
-        "lower": 0.26666666666666666,
-        "margin": 0.0,
-        "mean": 0.26666666666666666,
-        "n": 1,
-        "upper": 0.26666666666666666
+        "lower": 0.20240533995825527,
+        "margin": 0.06584651138957133,
+        "mean": 0.2682518513478266,
+        "n": 5,
+        "upper": 0.3340983627373979
       },
       "ttft_p95_ms": {
-        "lower": 225.85223989999997,
-        "margin": 0.0,
-        "mean": 225.85223989999997,
-        "n": 1,
-        "upper": 225.85223989999997
+        "lower": 170.9750046925473,
+        "margin": 67.67770382745266,
+        "mean": 238.65270851999995,
+        "n": 5,
+        "upper": 306.3304123474526
       }
     },
     "least_loaded": {
       "agent_workflow_p95_ms": {
-        "lower": 34013.4520232,
-        "margin": 0.0,
-        "mean": 34013.4520232,
-        "n": 1,
-        "upper": 34013.4520232
+        "lower": 26457.60789393195,
+        "margin": 34323.460519828055,
+        "mean": 60781.068413760004,
+        "n": 5,
+        "upper": 95104.52893358807
       },
       "average_npu_utilization": {
-        "lower": 0.8941518653639683,
-        "margin": 0.0,
-        "mean": 0.8941518653639683,
-        "n": 1,
-        "upper": 0.8941518653639683
+        "lower": 0.43467270952226883,
+        "margin": 0.35010865893235493,
+        "mean": 0.7847813684546238,
+        "n": 5,
+        "upper": 1.1348900273869786
       },
       "cache_hit_rate": {
-        "lower": 0.5451,
-        "margin": 0.0,
-        "mean": 0.5451,
-        "n": 1,
-        "upper": 0.5451
+        "lower": 0.3539221326512172,
+        "margin": 0.09061786734878283,
+        "mean": 0.44454000000000005,
+        "n": 5,
+        "upper": 0.5351578673487829
       },
       "goodput_rps": {
-        "lower": 1.6,
-        "margin": 0.0,
-        "mean": 1.6,
-        "n": 1,
-        "upper": 1.6
+        "lower": 1.332820590758403,
+        "margin": 0.4271794092415972,
+        "mean": 1.7600000000000002,
+        "n": 5,
+        "upper": 2.1871794092415975
       },
       "jain_weighted_service": {
-        "lower": 0.7462293536104483,
-        "margin": 0.0,
-        "mean": 0.7462293536104483,
-        "n": 1,
-        "upper": 0.7462293536104483
+        "lower": 0.3924949999007828,
+        "margin": 0.16750125026211177,
+        "mean": 0.5599962501628946,
+        "n": 5,
+        "upper": 0.7274975004250064
       },
       "latency_p95_ms": {
-        "lower": 12154.706331799993,
-        "margin": 0.0,
-        "mean": 12154.706331799993,
-        "n": 1,
-        "upper": 12154.706331799993
+        "lower": 7600.388854566858,
+        "margin": 9448.965392713113,
+        "mean": 17049.35424727997,
+        "n": 5,
+        "upper": 26498.319639993082
       },
       "slo_attainment_rate": {
         "lower": 1.0,
         "margin": 0.0,
         "mean": 1.0,
-        "n": 1,
+        "n": 5,
         "upper": 1.0
       },
       "starvation_rate": {
-        "lower": 0.3103448275862069,
-        "margin": 0.0,
-        "mean": 0.3103448275862069,
-        "n": 1,
-        "upper": 0.3103448275862069
+        "lower": 0.2317788177815178,
+        "margin": 0.06261995653612065,
+        "mean": 0.29439877431763845,
+        "n": 5,
+        "upper": 0.3570187308537591
       },
       "ttft_p95_ms": {
-        "lower": 253.76610479999982,
-        "margin": 0.0,
-        "mean": 253.76610479999982,
-        "n": 1,
-        "upper": 253.76610479999982
+        "lower": 201.97103853787212,
+        "margin": 65.59430663212777,
+        "mean": 267.5653451699999,
+        "n": 5,
+        "upper": 333.15965180212766
       }
     },
     "slo_guarded_affinity": {
       "agent_workflow_p95_ms": {
-        "lower": 33886.6282574,
-        "margin": 0.0,
-        "mean": 33886.6282574,
-        "n": 1,
-        "upper": 33886.6282574
+        "lower": 26855.348257064958,
+        "margin": 33978.181860175035,
+        "mean": 60833.53011723999,
+        "n": 5,
+        "upper": 94811.71197741502
       },
       "average_npu_utilization": {
-        "lower": 0.865645299308432,
-        "margin": 0.0,
-        "mean": 0.865645299308432,
-        "n": 1,
-        "upper": 0.865645299308432
+        "lower": 0.4274019638047722,
+        "margin": 0.3440908981192256,
+        "mean": 0.7714928619239978,
+        "n": 5,
+        "upper": 1.1155837600432235
       },
       "cache_hit_rate": {
-        "lower": 0.6392,
-        "margin": 0.0,
-        "mean": 0.6392,
-        "n": 1,
-        "upper": 0.6392
+        "lower": 0.40482518231612313,
+        "margin": 0.12313481768387685,
+        "mean": 0.52796,
+        "n": 5,
+        "upper": 0.6510948176838769
       },
       "goodput_rps": {
-        "lower": 1.76,
-        "margin": 0.0,
-        "mean": 1.76,
-        "n": 1,
-        "upper": 1.76
+        "lower": 1.3484049640608644,
+        "margin": 0.4915950359391354,
+        "mean": 1.8399999999999999,
+        "n": 5,
+        "upper": 2.3315950359391353
       },
       "jain_weighted_service": {
-        "lower": 0.6727357355233777,
-        "margin": 0.0,
-        "mean": 0.6727357355233777,
-        "n": 1,
-        "upper": 0.6727357355233777
+        "lower": 0.3987934778372092,
+        "margin": 0.14320335510437301,
+        "mean": 0.5419968329415822,
+        "n": 5,
+        "upper": 0.6852001880459552
       },
       "latency_p95_ms": {
-        "lower": 12378.825182599992,
-        "margin": 0.0,
-        "mean": 12378.825182599992,
-        "n": 1,
-        "upper": 12378.825182599992
+        "lower": 7987.850244930287,
+        "margin": 8807.215882289685,
+        "mean": 16795.066127219972,
+        "n": 5,
+        "upper": 25602.282009509658
       },
       "slo_attainment_rate": {
         "lower": 1.0,
         "margin": 0.0,
         "mean": 1.0,
-        "n": 1,
+        "n": 5,
         "upper": 1.0
       },
       "starvation_rate": {
-        "lower": 0.26666666666666666,
-        "margin": 0.0,
-        "mean": 0.26666666666666666,
-        "n": 1,
-        "upper": 0.26666666666666666
+        "lower": 0.20240533995825527,
+        "margin": 0.06584651138957133,
+        "mean": 0.2682518513478266,
+        "n": 5,
+        "upper": 0.3340983627373979
       },
       "ttft_p95_ms": {
-        "lower": 225.85223989999997,
-        "margin": 0.0,
-        "mean": 225.85223989999997,
-        "n": 1,
-        "upper": 225.85223989999997
+        "lower": 170.9750046925473,
+        "margin": 67.67770382745266,
+        "mean": 238.65270851999995,
+        "n": 5,
+        "upper": 306.3304123474526
       }
     },
     "weighted_fair": {
       "agent_workflow_p95_ms": {
-        "lower": 34013.4520232,
-        "margin": 0.0,
-        "mean": 34013.4520232,
-        "n": 1,
-        "upper": 34013.4520232
+        "lower": 26457.60789393195,
+        "margin": 34323.460519828055,
+        "mean": 60781.068413760004,
+        "n": 5,
+        "upper": 95104.52893358807
       },
       "average_npu_utilization": {
-        "lower": 0.8941518653639683,
-        "margin": 0.0,
-        "mean": 0.8941518653639683,
-        "n": 1,
-        "upper": 0.8941518653639683
+        "lower": 0.43467270952226883,
+        "margin": 0.35010865893235493,
+        "mean": 0.7847813684546238,
+        "n": 5,
+        "upper": 1.1348900273869786
       },
       "cache_hit_rate": {
-        "lower": 0.5451,
-        "margin": 0.0,
-        "mean": 0.5451,
-        "n": 1,
-        "upper": 0.5451
+        "lower": 0.3539221326512172,
+        "margin": 0.09061786734878283,
+        "mean": 0.44454000000000005,
+        "n": 5,
+        "upper": 0.5351578673487829
       },
       "goodput_rps": {
-        "lower": 1.6,
-        "margin": 0.0,
-        "mean": 1.6,
-        "n": 1,
-        "upper": 1.6
+        "lower": 1.332820590758403,
+        "margin": 0.4271794092415972,
+        "mean": 1.7600000000000002,
+        "n": 5,
+        "upper": 2.1871794092415975
       },
       "jain_weighted_service": {
-        "lower": 0.7462293536104483,
-        "margin": 0.0,
-        "mean": 0.7462293536104483,
-        "n": 1,
-        "upper": 0.7462293536104483
+        "lower": 0.3924949999007828,
+        "margin": 0.16750125026211177,
+        "mean": 0.5599962501628946,
+        "n": 5,
+        "upper": 0.7274975004250064
       },
       "latency_p95_ms": {
-        "lower": 12154.706331799993,
-        "margin": 0.0,
-        "mean": 12154.706331799993,
-        "n": 1,
-        "upper": 12154.706331799993
+        "lower": 7600.388854566858,
+        "margin": 9448.965392713113,
+        "mean": 17049.35424727997,
+        "n": 5,
+        "upper": 26498.319639993082
       },
       "slo_attainment_rate": {
         "lower": 1.0,
         "margin": 0.0,
         "mean": 1.0,
-        "n": 1,
+        "n": 5,
         "upper": 1.0
       },
       "starvation_rate": {
-        "lower": 0.3103448275862069,
-        "margin": 0.0,
-        "mean": 0.3103448275862069,
-        "n": 1,
-        "upper": 0.3103448275862069
+        "lower": 0.2317788177815178,
+        "margin": 0.06261995653612065,
+        "mean": 0.29439877431763845,
+        "n": 5,
+        "upper": 0.3570187308537591
       },
       "ttft_p95_ms": {
-        "lower": 253.76610479999982,
-        "margin": 0.0,
-        "mean": 253.76610479999982,
-        "n": 1,
-        "upper": 253.76610479999982
+        "lower": 201.97103853787212,
+        "margin": 65.59430663212777,
+        "mean": 267.5653451699999,
+        "n": 5,
+        "upper": 333.15965180212766
       }
     }
   },
-  "generated_at": "2026-08-11T06:18:48.645515Z",
-  "missing_runs": [
-    "balanced-r1p6-s1730-cache-max",
-    "balanced-r1p6-s1730-least-loaded",
-    "balanced-r1p6-s1730-slo-guarded-affinity",
-    "balanced-r1p6-s1730-weighted-fair",
-    "balanced-r1p6-s1731-cache-max",
-    "balanced-r1p6-s1731-least-loaded",
-    "balanced-r1p6-s1731-slo-guarded-affinity",
-    "balanced-r1p6-s1731-weighted-fair",
-    "balanced-r1p6-s1732-cache-max",
-    "balanced-r1p6-s1732-least-loaded",
-    "balanced-r1p6-s1732-slo-guarded-affinity",
-    "balanced-r1p6-s1732-weighted-fair",
-    "balanced-r1p6-s1733-cache-max",
-    "balanced-r1p6-s1733-least-loaded",
-    "balanced-r1p6-s1733-slo-guarded-affinity",
-    "balanced-r1p6-s1733-weighted-fair"
-  ],
+  "generated_at": "2026-08-12T00:22:30.340576Z",
+  "missing_runs": [],
   "planned_runs": 28,
   "schema_version": "1.0.0",
   "source_run_manifest_sha256": {
@@ -292,6 +275,22 @@
     "balanced-r1p6-s1729-least-loaded": "80b1a8866be918f8768fee739978c07467408173c867defeb7b61b2025abb433",
     "balanced-r1p6-s1729-slo-guarded-affinity": "cccefd918a63c2a5f18ffd64f888079adfb5930eadd0c2248d8c734add0c9f28",
     "balanced-r1p6-s1729-weighted-fair": "e20335d7b7a2fd73678c1bb8f86e8e2111d03d746ee9b76bd6d2703aa3c555e5",
+    "balanced-r1p6-s1730-cache-max": "9ce3fc30a5dca63ce25016d24e52436da1dc541969f1001d84c7928880b4bb8c",
+    "balanced-r1p6-s1730-least-loaded": "76bbc49b031051152c4c84de0485af5a25e163055ec9c2cdf2fbb380eafa0f5a",
+    "balanced-r1p6-s1730-slo-guarded-affinity": "7c3184fbea457061535b583593d76246f123df250b52b4b39508d92ad5b41b85",
+    "balanced-r1p6-s1730-weighted-fair": "c21a8e57706f22444209d6436b56587c81e366fed44e121477489d16e02c7889",
+    "balanced-r1p6-s1731-cache-max": "adab0eb34ff7a0aea106cf4c0e0c070f4509ada80a3ebb2551581f62dc561a86",
+    "balanced-r1p6-s1731-least-loaded": "1f16a61bdb1cf4368f0eae789af4406e83265bcce8bc4c19599a2772529540e5",
+    "balanced-r1p6-s1731-slo-guarded-affinity": "a740ca9ba9c927c0ca7d524af4fa936ac3f3d4d20ff3424972f8056a70f90d3e",
+    "balanced-r1p6-s1731-weighted-fair": "331cea5d3396f24720773726de7784678d1454b3c1df809bb5a391b9929ed40b",
+    "balanced-r1p6-s1732-cache-max": "0f7adf065ea55ada76df1b580a4959849a1653d6520568725cc347df2618d9b1",
+    "balanced-r1p6-s1732-least-loaded": "b4126251a32b71c56356aff70225e5bc085cd14e446be0fab04777fe9c7f0257",
+    "balanced-r1p6-s1732-slo-guarded-affinity": "1595879ba1356f7f4826a581a430f63adebd5f839ab0a207e33ed94fb9f64528",
+    "balanced-r1p6-s1732-weighted-fair": "9f6e191bf9ea6bb5e0012c41f7112ca25f3eb48e0d67f6b1e39894e348c2fd62",
+    "balanced-r1p6-s1733-cache-max": "14feb81bde4a051eb4d0ac11c3bdc49208447357c274cc3a75b295d1ca112bf2",
+    "balanced-r1p6-s1733-least-loaded": "2b6f87c2d8ae20ca6b231d7df32c64885f516cfe086c058101e36176c702b567",
+    "balanced-r1p6-s1733-slo-guarded-affinity": "93f4896ac3f1633a224449ce6dd1782b07d6c7957695f2d280729888f291f274",
+    "balanced-r1p6-s1733-weighted-fair": "5647cd065c4506d31ea50ae0203c64be357cbd7f50fa8ff3aa231febd20695e5",
     "balanced-r2p2-s1729-cache-max": "6e476b18e760b223f8d8cfa720667164dcbfb2fd9bd0aaf7de8457082b36950b",
     "balanced-r2p2-s1729-least-loaded": "94351dbd489a1449523f20614db45d1fa351d78f4000b07b4074afd9b7a303cc",
     "balanced-r2p2-s1729-slo-guarded-affinity": "e310bd9d06eb946a7cf8db92accaedf30f6dcf5437913d290093b19793bd0662",

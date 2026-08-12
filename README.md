@@ -11,17 +11,16 @@ normalization, experiment orchestration, metrics, and reporting.
 
 ## Status
 
-The reproducible environment and first two implementation milestones are
-operational. Both public sources are checksummed and normalized, the pinned
-simulator backend builds and reproduces its chat and agentic examples, and the
-smoke scenario deterministically generates a three-tenant LLMServingSim
-workload. All four C++ policies and the CUSTOM-routing bridge are implemented
-and unit tested. External `least_loaded` routing produces byte-identical output
-to the simulator's built-in `LOAD` baseline. Unloaded simulator calibration now
-supplies measured per-worker prefill and decode rates to latency-aware policies.
-The fixed smoke mix reaches 90.05% average simulated NPU utilization at 2.0
-top-level arrivals/s, establishing its initial `R_sat`. The full scenario/seed
-matrix, reporting, and real-vLLM validation remain on the roadmap.
+The reproducible environment and first three bounded implementation milestones
+are operational. Both public sources are checksummed and normalized, the pinned
+simulator backend builds and reproduces its chat and agentic examples, and all
+four C++ policies run through the tested CUSTOM-routing bridge. The completed
+`overnight-m3` milestone contains 28 immutable simulator runs: a three-load,
+four-policy matrix at seed 1729 and a five-seed policy comparison at 1.6
+arrivals/s. Its traceable summaries, Student-t confidence intervals, figures,
+and limitations are published in the
+[bounded simulation report](artifacts/overnight-m3/report.md). The broader
+scenario/ablation matrix and real-vLLM validation remain on the roadmap.
 
 ## Development setup
 
@@ -125,3 +124,11 @@ The command is resumable and exits unsuccessfully if the nine-hour limit is
 reached before all 28 runs are valid. Re-run the same command to continue from
 the checksum-validated artifacts. Use `--preflight-only` to validate the local
 environment and test suite without starting a simulator run.
+
+The completed compact result set is under `artifacts/overnight-m3/`. Raw run
+directories remain ignored because they total substantially more data and are
+reproducible from checksummed inputs. At the five-seed 1.6-arrivals/s slice,
+`cache_max` and `slo_guarded_affinity` produced a mean p95 TTFT of 238.65 ms,
+versus 267.57 ms for `least_loaded` and `weighted_fair`; the corresponding 95%
+intervals overlap, so this bounded experiment does not establish a decisive
+ranking. See the report for the full metrics and scope limits.

@@ -1,10 +1,10 @@
 # LLMSchedBench bounded simulation report
 
-Generated: 2026-08-11T06:18:48.645515Z
+Generated: 2026-08-12T00:22:30.340576Z
 
 ## Scope and completion
 
-This report contains 12 of 28 planned immutable simulator runs. The primary load matrix uses seed 1729 and is reported separately from the five-seed 1.6-arrivals/s confidence-interval slice.
+This report contains 28 of 28 planned immutable simulator runs. The primary load matrix uses seed 1729 and is reported separately from the five-seed 1.6-arrivals/s confidence-interval slice.
 
 ## Single-seed load matrix
 
@@ -33,10 +33,10 @@ Intervals are two-sided 95% Student-t intervals across deterministic workload se
 
 | Policy | Seeds | p95 TTFT mean [95% CI] ms | SLO attainment mean [95% CI] | Prefix hit mean [95% CI] | Goodput mean [95% CI] |
 |---|---:|---:|---:|---:|---:|
-| least_loaded | 1 | 253.77 [253.77, 253.77] | 100.00 [100.00, 100.00]% | 54.51 [54.51, 54.51]% | 1.60 [1.60, 1.60] |
-| cache_max | 1 | 225.85 [225.85, 225.85] | 100.00 [100.00, 100.00]% | 63.92 [63.92, 63.92]% | 1.76 [1.76, 1.76] |
-| weighted_fair | 1 | 253.77 [253.77, 253.77] | 100.00 [100.00, 100.00]% | 54.51 [54.51, 54.51]% | 1.60 [1.60, 1.60] |
-| slo_guarded_affinity | 1 | 225.85 [225.85, 225.85] | 100.00 [100.00, 100.00]% | 63.92 [63.92, 63.92]% | 1.76 [1.76, 1.76] |
+| least_loaded | 5 | 267.57 [201.97, 333.16] | 100.00 [100.00, 100.00]% | 44.45 [35.39, 53.52]% | 1.76 [1.33, 2.19] |
+| cache_max | 5 | 238.65 [170.98, 306.33] | 100.00 [100.00, 100.00]% | 52.80 [40.48, 65.11]% | 1.84 [1.35, 2.33] |
+| weighted_fair | 5 | 267.57 [201.97, 333.16] | 100.00 [100.00, 100.00]% | 44.45 [35.39, 53.52]% | 1.76 [1.33, 2.19] |
+| slo_guarded_affinity | 5 | 238.65 [170.98, 306.33] | 100.00 [100.00, 100.00]% | 52.80 [40.48, 65.11]% | 1.84 [1.35, 2.33] |
 
 ![Five-seed p95 TTFT](figures/ci-slice.svg)
 

@@ -1,28 +1,28 @@
 {
   "artifacts": {
     "aggregate.json": {
-      "sha256": "a58b5aee7e46ebb3393cb465765ee9692c439d3fd7f39478528cffadb80045c8",
-      "size": 8431
+      "sha256": "3158c8c9cf52dd1387defc19d13a22d7977c0e6410197c4125d84aae6e05bb7a",
+      "size": 10347
     },
     "figures/ci-slice.svg": {
-      "sha256": "a1e8525e733b9438f612338ed3974d5bee8311d763cbbf5c8f4120f6aeb67ae2",
-      "size": 3547
+      "sha256": "dd3c7d5620f8d030505268f5d9f707d5c0fb729b311cef9db8247c503ffb3956",
+      "size": 3555
     },
     "figures/load-sweep.svg": {
       "sha256": "d354c261d2137425591f93fb07894c76ebbdb5e2d4db178b6be07d77081657c8",
       "size": 3638
     },
     "report.md": {
-      "sha256": "88227dd272c90ebee0d64f1b82d1cd341940ee3ff254178a0c860d79fabe1ffa",
+      "sha256": "5b98dbd619a834207e7face3978e4a5fff5ecc894c341e2a1d1e4e5f3658d99c",
       "size": 4458
     },
     "run-summaries.jsonl": {
-      "sha256": "dfd8b0acdfacf08667bc83ab672928b5a52bcfb950ebec8900f46bf183a2ca6e",
-      "size": 40656
+      "sha256": "2c34ec02a8dbf9a6f230d2d9de2e630c2b23e92c2e47e712b764fccfb35aa257",
+      "size": 95020
     }
   },
-  "completed_runs": 12,
-  "generated_at": "2026-08-11T06:18:48.645515Z",
+  "completed_runs": 28,
+  "generated_at": "2026-08-12T00:22:30.340576Z",
   "planned_runs": 28,
   "schema_version": "1.0.0"
 }
