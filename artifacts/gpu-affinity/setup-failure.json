@@ -1,0 +1,9 @@
+{
+  "instance_id": "fd2fb800bab34c2c85897fe9d0c2e47b",
+  "outcome": "terminated before comparison",
+  "error": "PermissionError: [Errno 13] Permission denied: runs/gpu-affinity",
+  "cause": "sudo worker launcher created the parent runs directory as root on a fresh checkout",
+  "recovery": "Create runs as the normal user and assert write access before launching workers; replacement uses original absolute termination deadline",
+  "comparison_runs_completed": 0,
+  "termination_verified": true
+}

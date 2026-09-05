@@ -1,0 +1,31 @@
+{
+  "input_tokens": 4096,
+  "output_tokens": 128,
+  "shared_prefix_tokens": 3072,
+  "groups": 8,
+  "hot_group_probability": 0.8,
+  "probe_rates": [
+    2,
+    4,
+    8,
+    16
+  ],
+  "probe_calls": 96,
+  "probe_p95_threshold_ms": 1000,
+  "study_calls": 192,
+  "seeds": [
+    1729,
+    2718,
+    3141
+  ],
+  "conditions": [
+    "low_reuse",
+    "distributed",
+    "hot_prefix"
+  ],
+  "selection": "First low-reuse least-loaded probe with p95 >= 1000ms; otherwise highest tested rate. Abort on failed calls.",
+  "ordering": "Seed-major; rotate conditions by seed index; alternate policy order by pair index.",
+  "warmup": "Eight disjoint 4096-input/128-output requests per pair, then execute_gpu resets prefix caches before each measured run.",
+  "semantics": "Synthetic independent open-loop requests; fixed lengths; no agent chains. Tenant labels share identical service distributions.",
+  "termination": "No run starts unless its worst-case timeout plus 120 seconds fits before the experiment stop time. Failed calls stop the study."
+}

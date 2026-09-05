@@ -1,0 +1,94 @@
+{
+  "state": "complete",
+  "measured_runs": 18,
+  "measured_requests": 3456,
+  "all_requests_including_probes_and_warmup": 3728,
+  "source_archive_sha256": "4e28caa45304882d73f0512122f04132332bc2f2d744d9b7238a37bc1e2e1050",
+  "raw_archive_sha256": "5beb66a8448fdea34f33efee881f884ffc148929731353612e35477ddcac3a93",
+  "outputs": {
+    "aggregate.json": {
+      "sha256": "d5622bf4ac85c90081586b491939428685b4406b975029ee3e3e43321270f80c",
+      "size": 1649
+    },
+    "analysis-environment.json": {
+      "sha256": "f50f581a11298b2f6ad1a02848729560423081cca207d96deaeff9784dd676db",
+      "size": 93
+    },
+    "diagnostics.json": {
+      "sha256": "f4771876e97e6c289e1b716797bc17f58ba0110617cae4d172d6729c05b8ad64",
+      "size": 5375
+    },
+    "figures/prefix-affinity.pdf": {
+      "sha256": "987268a7b8ede1290425b33abfa0be2e02b626fe076ab404b5b773147d43f444",
+      "size": 33710
+    },
+    "figures/prefix-affinity.png": {
+      "sha256": "7c609e760899c470d84f90934409bad271d7b7e8a8c29f1dd12fa5261a4b246f",
+      "size": 180794
+    },
+    "figures/prefix-affinity.svg": {
+      "sha256": "accedd456e3f7490b1315e11c620b90eaf8aba3b03f34d713119962e09c91b4c",
+      "size": 111446
+    },
+    "gpu-config.json": {
+      "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+      "size": 466
+    },
+    "load-selection.json": {
+      "sha256": "d9aa6417901a77200bd4c02dd0a4cf45deecf42fab4bf4334f79155e6ec9ba5c",
+      "size": 2988
+    },
+    "measurement-source.tar.gz": {
+      "sha256": "4e28caa45304882d73f0512122f04132332bc2f2d744d9b7238a37bc1e2e1050",
+      "size": 76906
+    },
+    "nvidia-smi.txt": {
+      "sha256": "36e3cf029e11727a699f12b01aa56e237e8d63f10fb1050acc2e596cac767db1",
+      "size": 44072
+    },
+    "plot-gpu-study.py": {
+      "sha256": "581dc4571cfd27325cb77bd553ed1747702fccd81503fb426a5fba3f1121134f",
+      "size": 2756
+    },
+    "protocol.json": {
+      "sha256": "2b901ef92f0e4461766082ea428288274b28d6e899880d1eea07977f896eb472",
+      "size": 1037
+    },
+    "rental-outcome.json": {
+      "sha256": "1abc6ef8673ffc86d126726ec797de9a3302d7017d3e47b777103df7cd9b0baa",
+      "size": 980
+    },
+    "report.md": {
+      "sha256": "a17f78aba69ab5e0c2f98f327f211e5d4aeface7071620f76cf3ac798ad9af84",
+      "size": 2571
+    },
+    "requests.jsonl.gz": {
+      "sha256": "62fbb1f044c1f69f7d49d5a3c38e8c9797fbaf266777ae19015e87d1b84a7c7d",
+      "size": 146983
+    },
+    "results.json": {
+      "sha256": "68157a2a366219449d59a4f1225c823c7ea9e8ef5e12ef9407564e27a962f138",
+      "size": 30437
+    },
+    "run-manifests.json": {
+      "sha256": "6f2172c63f0651d64cc5e86cad1658f12a09b712664b93b41c60b4ac29c1a9d1",
+      "size": 44193
+    },
+    "runner-packages.json": {
+      "sha256": "f199ece3d40aa89b201e11f34c6f9ed7897431c178d2e14285f960ca905d08d0",
+      "size": 1086
+    },
+    "setup-failure.json": {
+      "sha256": "697bcb105ec1f6932fdca216863f3efec07cb769fb681f45c6afc485e1581297",
+      "size": 497
+    },
+    "summarize-gpu-study.py": {
+      "sha256": "00fac2165fd627f4f4109e68576506ad276ab96de65f91fd71194f3a89b14182",
+      "size": 1794
+    },
+    "validation.json": {
+      "sha256": "70e190c42ba45b3eb16f53ce97b5c2b22d6b75a47439f858c44d3c6e28dcec6f",
+      "size": 157
+    }
+  }
+}

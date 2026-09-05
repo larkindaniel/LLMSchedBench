@@ -1,0 +1,62 @@
+[
+  {
+    "condition": "low_reuse",
+    "least_loaded": {
+      "mean_run_p95_ttft_ms": 11443.110016583332,
+      "mean_run_p95_completion_ms": 42034.38301395,
+      "mean_cache_hit_pct": 0.0,
+      "max_waiting": 24.0
+    },
+    "cache_max": {
+      "mean_run_p95_ttft_ms": 11275.881522933332,
+      "mean_run_p95_completion_ms": 41971.17525481667,
+      "mean_cache_hit_pct": 0.0,
+      "max_waiting": 24.0
+    },
+    "paired_ttft_reduction_pct": [
+      -0.30019212575550963,
+      5.216152793224654,
+      0.11933895598050104
+    ]
+  },
+  {
+    "condition": "distributed",
+    "least_loaded": {
+      "mean_run_p95_ttft_ms": 598.4463728666665,
+      "mean_run_p95_completion_ms": 5184.330051916666,
+      "mean_cache_hit_pct": 68.75,
+      "max_waiting": 1.0
+    },
+    "cache_max": {
+      "mean_run_p95_ttft_ms": 571.8189694333332,
+      "mean_run_p95_completion_ms": 5115.954158316666,
+      "mean_cache_hit_pct": 70.18229166666666,
+      "max_waiting": 1.0
+    },
+    "paired_ttft_reduction_pct": [
+      12.686871023136135,
+      0.6516488841571826,
+      2.7694146369475936
+    ]
+  },
+  {
+    "condition": "hot_prefix",
+    "least_loaded": {
+      "mean_run_p95_ttft_ms": 514.2946205999999,
+      "mean_run_p95_completion_ms": 4287.4794227,
+      "mean_cache_hit_pct": 69.27083333333334,
+      "max_waiting": 1.0
+    },
+    "cache_max": {
+      "mean_run_p95_ttft_ms": 492.1347723999998,
+      "mean_run_p95_completion_ms": 4149.42006145,
+      "mean_cache_hit_pct": 70.83333333333334,
+      "max_waiting": 0.0
+    },
+    "paired_ttft_reduction_pct": [
+      7.414885894395344,
+      4.388021299473975,
+      1.443480031973665
+    ]
+  }
+]

@@ -111,6 +111,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     run = commands.add_parser("run")
     run.add_argument("scenario")
+    run.add_argument("--backend", choices=("simulator", "vllm"), default="simulator")
+    run.add_argument("--gpu-config")
+    run.add_argument("--workload-directory", help="reuse a prepared workload directory")
     run.add_argument("--policy", required=True, choices=POLICIES)
     run.add_argument("--arrival-rate-rps", type=float)
     run.add_argument("--seed", type=int)
@@ -141,6 +144,10 @@ def build_parser() -> argparse.ArgumentParser:
         "--cluster-config", default="configs/cluster/benchmark_2worker.json"
     )
     report.add_argument("--require-complete", action="store_true")
+
+    gpu_report = commands.add_parser("gpu-report", help="report completed hardware runs")
+    gpu_report.add_argument("runs", nargs="+")
+    gpu_report.add_argument("--output", required=True)
 
     validate = commands.add_parser("validate")
     validate.add_argument("scenario")
@@ -371,6 +378,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         write_calibration(value, args.output)
         print(json.dumps(value, sort_keys=True))
         return 0
+    if args.command == "gpu-report":
+        from .gpu import gpu_report
+        gpu_report([Path(p) for p in args.runs], Path(args.output))
+        return 0
     if args.command == "run":
         scenario = compile_scenario(args.scenario)
         rate = float(
@@ -386,6 +397,30 @@ def main(argv: Sequence[str] | None = None) -> int:
             service_rates=args.service_rates,
             simulator_image=args.simulator_image,
         )
+        if args.backend == "vllm":
+            import asyncio
+
+            from .experiment import validate_completed_run
+            from .gpu import GPU_POLICIES, GPUConfig, execute_gpu
+            if not args.gpu_config:
+                raise SystemExit("--gpu-config is required for the vllm backend")
+            if args.policy not in GPU_POLICIES:
+                raise SystemExit(f"vllm currently supports {GPU_POLICIES}")
+            config = GPUConfig.model_validate_json(Path(args.gpu_config).read_text())
+            spec = RunSpec(str(scenario["name"]), args.policy, rate, seed)
+            workload = (Path(args.workload_directory) if args.workload_directory
+                        else runner.prepare_workload(spec))
+            validate_completed_run(workload, required_outputs=(
+                "resolved-scenario.json", "workload.jsonl", "workload-provenance.json"
+            ))
+            resolved = json.loads((workload / "resolved-scenario.json").read_text())
+            if (resolved["seed"] != seed or resolved["name"] != scenario["name"]
+                    or resolved["trace"]["arrival_rate_rps"] != rate):
+                raise SystemExit("prepared workload does not match scenario, rate, and seed")
+            destination = Path(args.run_root) / (spec.key + "-vllm")
+            asyncio.run(execute_gpu(workload, config, args.policy, destination))
+            print(destination)
+            return 0 if json.loads((destination / "manifest.json").read_text())["state"] == "complete" else 1
         summary = runner.run_serial(
             [RunSpec(str(scenario["name"]), args.policy, rate, seed)],
             prepare=not args.no_prepare,

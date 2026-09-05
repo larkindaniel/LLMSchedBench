@@ -1,0 +1,236 @@
+[
+  {
+    "run": "distributed-s1729-cache_max",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 24,
+    "both_workers_estimated_warm_fraction": 0.21875,
+    "max_dispatch_lag_ms": 14.67141,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "distributed-s1729-least_loaded",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 24,
+    "both_workers_estimated_warm_fraction": 0.71875,
+    "max_dispatch_lag_ms": 21.559532,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "distributed-s2718-cache_max",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 32,
+    "both_workers_estimated_warm_fraction": 0.4895833333333333,
+    "max_dispatch_lag_ms": 24.994434,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "distributed-s2718-least_loaded",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 32,
+    "both_workers_estimated_warm_fraction": 0.7395833333333334,
+    "max_dispatch_lag_ms": 39.508546,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "distributed-s3141-cache_max",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 29,
+    "both_workers_estimated_warm_fraction": 0.6614583333333334,
+    "max_dispatch_lag_ms": 28.678692,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "distributed-s3141-least_loaded",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 29,
+    "both_workers_estimated_warm_fraction": 0.75,
+    "max_dispatch_lag_ms": 20.164315,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "hot_prefix-s1729-cache_max",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 22,
+    "both_workers_estimated_warm_fraction": 0.7291666666666666,
+    "max_dispatch_lag_ms": 8.10274,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "hot_prefix-s1729-least_loaded",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 22,
+    "both_workers_estimated_warm_fraction": 0.796875,
+    "max_dispatch_lag_ms": 66.703691,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "hot_prefix-s2718-cache_max",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 23,
+    "both_workers_estimated_warm_fraction": 0.7135416666666666,
+    "max_dispatch_lag_ms": 33.110201,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "hot_prefix-s2718-least_loaded",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 25,
+    "both_workers_estimated_warm_fraction": 0.7447916666666666,
+    "max_dispatch_lag_ms": 33.579596,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "hot_prefix-s3141-cache_max",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 26,
+    "both_workers_estimated_warm_fraction": 0.7291666666666666,
+    "max_dispatch_lag_ms": 26.668714,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "hot_prefix-s3141-least_loaded",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 26,
+    "both_workers_estimated_warm_fraction": 0.765625,
+    "max_dispatch_lag_ms": 29.57662,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "low_reuse-s1729-cache_max",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 133,
+    "both_workers_estimated_warm_fraction": 0.0,
+    "max_dispatch_lag_ms": 39.862257,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "low_reuse-s1729-least_loaded",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 133,
+    "both_workers_estimated_warm_fraction": 0.0,
+    "max_dispatch_lag_ms": 30.575741,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "low_reuse-s2718-cache_max",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 138,
+    "both_workers_estimated_warm_fraction": 0.0,
+    "max_dispatch_lag_ms": 19.724659,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "low_reuse-s2718-least_loaded",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 140,
+    "both_workers_estimated_warm_fraction": 0.0,
+    "max_dispatch_lag_ms": 20.70564,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "low_reuse-s3141-cache_max",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 161,
+    "both_workers_estimated_warm_fraction": 0.0,
+    "max_dispatch_lag_ms": 26.290371,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "run": "low_reuse-s3141-least_loaded",
+    "queried_tokens": 786432.0,
+    "max_client_outstanding": 161,
+    "both_workers_estimated_warm_fraction": 0.0,
+    "max_dispatch_lag_ms": 13.590663,
+    "peak_gpu_utilization_pct": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ]
+  }
+]

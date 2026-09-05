@@ -1,0 +1,41 @@
+{
+  "name": "real_gpu_single",
+  "seed": 1729,
+  "cluster": {
+    "workers": 1,
+    "gpus_per_worker": 1,
+    "model": "Qwen/Qwen3-4B",
+    "hardware": "rented-identical-gpus"
+  },
+  "tenants": {
+    "chat": {
+      "weight": 1.0,
+      "ttft_slo_ms": 1000
+    },
+    "coding_agent": {
+      "weight": 1.0,
+      "ttft_slo_ms": 1500
+    },
+    "api_batch": {
+      "weight": 0.5,
+      "ttft_slo_ms": 10000
+    }
+  },
+  "traffic": {
+    "chat": 0.6,
+    "coding_agent": 0.25,
+    "api_batch": 0.15
+  },
+  "trace": {
+    "entries": 20,
+    "arrival_rate_rps": 1.6,
+    "coding_session": {
+      "min_steps": 2,
+      "max_steps": 16,
+      "max_input_tokens": 8192
+    }
+  },
+  "metrics": {
+    "starvation_slo_multiplier": 5.0
+  }
+}

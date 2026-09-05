@@ -1,0 +1,16 @@
+{
+  "cache_block_size": 16,
+  "endpoints": [
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:8001"
+  ],
+  "estimated_cache_blocks": 4096,
+  "host_cuda_driver": true,
+  "image": "vllm/vllm-openai@sha256:7764931211e5b408a10d6e289ab9eca8d6ecd105e9239cb2d528c2c4d0ad67b0",
+  "max_inflight": 256,
+  "max_model_len": 16384,
+  "model": "Qwen/Qwen3-4B",
+  "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "request_timeout_s": 180,
+  "run_timeout_s": 240
+}

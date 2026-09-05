@@ -1,0 +1,26 @@
+{
+  "attempts": [
+    {
+      "attempt": "gpu-affinity-control",
+      "instance_type": "gpu_4x_a6000",
+      "termination_verified": true,
+      "launched_at_utc": "2026-09-05T21:40:55+00:00",
+      "verified_at_utc": "2026-09-05T21:56:01.677398+00:00",
+      "conservative_minutes": 16,
+      "hourly_usd": 4.36,
+      "conservative_compute_usd": 1.1626666666666667
+    },
+    {
+      "attempt": "gpu-affinity-retry-control",
+      "instance_type": "gpu_4x_a6000",
+      "termination_verified": true,
+      "launched_at_utc": "2026-09-05T21:56:16+00:00",
+      "verified_at_utc": "2026-09-05T22:33:31.305459+00:00",
+      "conservative_minutes": 38,
+      "hourly_usd": 4.36,
+      "conservative_compute_usd": 2.7613333333333334
+    }
+  ],
+  "total_conservative_compute_usd": 3.9240000000000004,
+  "note": "Estimate, not invoice. Rounds each launch-to-verified-termination interval up to a minute. Actual billable time may be shorter. Excludes taxes and currency conversion."
+}

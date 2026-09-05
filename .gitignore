@@ -54,6 +54,8 @@ runs/
 artifacts/*
 !artifacts/overnight-m3/
 !artifacts/overnight-m3/**
+!artifacts/gpu-affinity/
+!artifacts/gpu-affinity/**
 
 # Interrupted atomic writes
 *.part

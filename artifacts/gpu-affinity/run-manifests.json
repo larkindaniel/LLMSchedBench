@@ -1,0 +1,1208 @@
+{
+  "distributed-s1729-cache_max": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "0a4fc9a90f8987e9e48473c46b2cb3bceda4d4f56269ef898952c5c5031b1a4f",
+        "size": 95403
+      },
+      "resolved-scenario.json": {
+        "sha256": "c1e4bcba7abba38e727b4a04e346874605e339b743b79c671e6d5b737ab8f6d3",
+        "size": 349
+      },
+      "summary.json": {
+        "sha256": "8590277ba117ab60dc1abc7fc8a8228f8a77765397434187c4c17505a59f2b8e",
+        "size": 1316
+      },
+      "token-workload.json": {
+        "sha256": "bb398efc98bde1f9d32d28341373d08bea8fbf29bd9f14307f74c79e230f9d33",
+        "size": 20315576
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "c13549a2762766ac88467b7fa5348a94277a3d1e88b3e8f037d9b364fafdc98d",
+        "size": 49698
+      },
+      "worker-0-before.prom": {
+        "sha256": "40ad29ca2d4a284d1704b5c998ee65ff62993e4843c8119b102bdd6a5191365a",
+        "size": 49649
+      },
+      "worker-0-models.json": {
+        "sha256": "e1b38961163a863d2a0f1138de4b5ea03f966275df8a3aec206f8efdb4e423d5",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "37ed1c265a1ebabcbe6576373843da31aa957afd34a1dfe5adcb1a33c8658fee",
+        "size": 49681
+      },
+      "worker-1-before.prom": {
+        "sha256": "07543dd2fba58e8ce80bc3129dd4a162976c1265c46fb6054a8a49d49c89fdb1",
+        "size": 49649
+      },
+      "worker-1-models.json": {
+        "sha256": "8a13f6379f1828e2ee4ca4fa904f55aa2374b2805acb8356867d070c259ccc89",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "78370b41284ce5a6619e0696ec61609dd2f7644f5af7eb55bce02ed1953c6754",
+        "size": 106
+      },
+      "workload.jsonl": {
+        "sha256": "bfc7debde0ba6c8c183c4c3f1b0d33a3b1d79795a51bfb9942ac80a8c56f700a",
+        "size": 5446543
+      }
+    },
+    "policy": "cache_max",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "distributed-s1729-least_loaded": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "8c36668171ce2575e9b7e1e43d77b2f5c68d71717b492325a64060c2e02e5891",
+        "size": 96223
+      },
+      "resolved-scenario.json": {
+        "sha256": "c1e4bcba7abba38e727b4a04e346874605e339b743b79c671e6d5b737ab8f6d3",
+        "size": 349
+      },
+      "summary.json": {
+        "sha256": "941db10771e60553b2b16bb5d3b742558e9a950138ebcc73123831ee784591d6",
+        "size": 1309
+      },
+      "token-workload.json": {
+        "sha256": "bb398efc98bde1f9d32d28341373d08bea8fbf29bd9f14307f74c79e230f9d33",
+        "size": 20315576
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "cbe7094363b2b0e34ce9e5b2a4cf1c09f788f30874308436b11255f925129e08",
+        "size": 49691
+      },
+      "worker-0-before.prom": {
+        "sha256": "0c076afa270fb8c3a5597d8fa755fd38c11a6c341044e8678baf47c2d79b81b2",
+        "size": 49698
+      },
+      "worker-0-models.json": {
+        "sha256": "837ad2123b367e813f8a64f14271b3e1054772b77ea0fde1ae44237d38a6269e",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "965d1cd2c90e20df9a1ef4209b5ce880cea3bdbc46a99d298d7c4860044d72e1",
+        "size": 49689
+      },
+      "worker-1-before.prom": {
+        "sha256": "bfce199c4ca854b2de25a90aec206988706c9b9861ae75f7f0b5b8f4037086a8",
+        "size": 49682
+      },
+      "worker-1-models.json": {
+        "sha256": "f0a3cf0caa2317f5177a651b2d9cedc0cbc020884fab722ae6fa72102668499e",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "78370b41284ce5a6619e0696ec61609dd2f7644f5af7eb55bce02ed1953c6754",
+        "size": 106
+      },
+      "workload.jsonl": {
+        "sha256": "bfc7debde0ba6c8c183c4c3f1b0d33a3b1d79795a51bfb9942ac80a8c56f700a",
+        "size": 5446543
+      }
+    },
+    "policy": "least_loaded",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "distributed-s2718-cache_max": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "737477eddcaa2572b9a0fbca3d77d663344b70a083a9341fc44ce19c52323b4e",
+        "size": 95450
+      },
+      "resolved-scenario.json": {
+        "sha256": "615fb207dc1ac015483e59bf5f0f1c7aa7e3a435064ca6c329c8d84bb0a6af2d",
+        "size": 349
+      },
+      "summary.json": {
+        "sha256": "7e20f5c175885e5825ba6674ce63252f7a7154f3395a6880275623bcd25de496",
+        "size": 1343
+      },
+      "token-workload.json": {
+        "sha256": "aa877b9e7f70c5e720b2e8232f4abc55cc3f4f0593833305f1a106d6e54b8753",
+        "size": 20316207
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "e5558ee381e112c81a221dc300e84d6af7a03f6f401becc4836967c88b7f4350",
+        "size": 49744
+      },
+      "worker-0-before.prom": {
+        "sha256": "dbdd1ca1f0a47e96df605c17657a908398863028c80df3dd6771b3b6fe5f7854",
+        "size": 49725
+      },
+      "worker-0-models.json": {
+        "sha256": "f1c9c377896a4607b83e29e5177bffe2cb6e5dfe4d776c309551a2fadf17b794",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "81f0f2d7e4c7418e493a7f9fc01d26407d63c8d45496a18fcc9497dcd68bcda0",
+        "size": 49742
+      },
+      "worker-1-before.prom": {
+        "sha256": "90fdefa596d9366a0f9a75a4a819b5904518ddc09a1e10b1e368c82d838b3504",
+        "size": 49727
+      },
+      "worker-1-models.json": {
+        "sha256": "30d4512f1fe5aef765f747f6fda6af7c5bdce4d8b3f8e9680feeaca8d59dfeed",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "9974f1dc9eb0a24c0dadb0b7ff672f67df0278d754fd2ca76ad2bbcbbdeac8c7",
+        "size": 106
+      },
+      "workload.jsonl": {
+        "sha256": "837c2991c6c11ffcee42f0ce5ae08c2aedd5a22f812bdeaa8a33da86a784ebf4",
+        "size": 5446844
+      }
+    },
+    "policy": "cache_max",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "distributed-s2718-least_loaded": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "6686660e0f2a8185ffe6117b1a6803e91109e8343a1851967d9b16ff50d729d2",
+        "size": 96148
+      },
+      "resolved-scenario.json": {
+        "sha256": "615fb207dc1ac015483e59bf5f0f1c7aa7e3a435064ca6c329c8d84bb0a6af2d",
+        "size": 349
+      },
+      "summary.json": {
+        "sha256": "a182b838f39415036fb7402c99141089437b04b1f141e54bcd8d6e565804c676",
+        "size": 1338
+      },
+      "token-workload.json": {
+        "sha256": "aa877b9e7f70c5e720b2e8232f4abc55cc3f4f0593833305f1a106d6e54b8753",
+        "size": 20316207
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "c1338f28f4920f33029265c5e84836087509b8e1f215b4c3f050395e839054c6",
+        "size": 49745
+      },
+      "worker-0-before.prom": {
+        "sha256": "b6124210a42bcee62a2a1deb90b0f9500ba27f26d7ebb1ad3bd00800f3284c2d",
+        "size": 49757
+      },
+      "worker-0-models.json": {
+        "sha256": "5c895435c7d96a895a9ac8b3b63fd673665fd357eef9c8cbac50c655f58ba9e0",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "054d0704a0812774eaf5f61108222d1937b03af7d5cf3e2a44af183049f09562",
+        "size": 49735
+      },
+      "worker-1-before.prom": {
+        "sha256": "f9ce15c03fed097b7699954638ba8e17efaf859bc16d42459dbc9282b9df805d",
+        "size": 49738
+      },
+      "worker-1-models.json": {
+        "sha256": "defd2c3a89ea72388311856bf7220c02b6c0853249b16e84e739baec246b049a",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "9974f1dc9eb0a24c0dadb0b7ff672f67df0278d754fd2ca76ad2bbcbbdeac8c7",
+        "size": 106
+      },
+      "workload.jsonl": {
+        "sha256": "837c2991c6c11ffcee42f0ce5ae08c2aedd5a22f812bdeaa8a33da86a784ebf4",
+        "size": 5446844
+      }
+    },
+    "policy": "least_loaded",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "distributed-s3141-cache_max": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "b5aa00ab265b06d8a2452f649dfbeaed5aacc2d846b5e556a6f4fc131577574c",
+        "size": 95646
+      },
+      "resolved-scenario.json": {
+        "sha256": "49ad0a4459c380d803a153dbc3119cb7dd9d1ea21e45716ef818fc1c487c5048",
+        "size": 349
+      },
+      "summary.json": {
+        "sha256": "22513ec930a2c0fc29c5e89111fc4318eacc3f05276ddd02d13244136ffc5536",
+        "size": 1303
+      },
+      "token-workload.json": {
+        "sha256": "7027c91da36036203d796d83452edbe795f0e55706808403e3de499052889275",
+        "size": 20317863
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "d9272a2e8358f0958c019ce9163c3c3964f4d098b24a5f85b32450a51fe17efb",
+        "size": 49942
+      },
+      "worker-0-before.prom": {
+        "sha256": "86ec66ef719849432492605383568f09e62f669ca281ecacf0bff1bdfbec16a3",
+        "size": 49937
+      },
+      "worker-0-models.json": {
+        "sha256": "f8fbe6c0a53d29cbaa4364c96e9b5266dd3c8c5cdb30396fa553bae4710c25c6",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "0952935498394c42499eae9faf25b7c9681fcdcefe972910582789b38e20c37e",
+        "size": 49938
+      },
+      "worker-1-before.prom": {
+        "sha256": "6184e525179543ccd142d480ff80148858c023a24047206139091fa5465eccd6",
+        "size": 49944
+      },
+      "worker-1-models.json": {
+        "sha256": "0740aace543fc48476dc8b8e4ada63d6457b6aae65926cf641009cc3ae32b8ed",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "5e0ed21d76b602c5f979698982d0fc30797656096713e3ccd18eb8a0f2b10988",
+        "size": 106
+      },
+      "workload.jsonl": {
+        "sha256": "318405ee8bbab584c3c9a0df8017a2ad1a60a9d58fe2f806b4e6967b209b375b",
+        "size": 5447674
+      }
+    },
+    "policy": "cache_max",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "distributed-s3141-least_loaded": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "fa84f78af5ebd0b7e374ac9a33f925c45819a052dec0630aa6d03ffd89786300",
+        "size": 96257
+      },
+      "resolved-scenario.json": {
+        "sha256": "49ad0a4459c380d803a153dbc3119cb7dd9d1ea21e45716ef818fc1c487c5048",
+        "size": 349
+      },
+      "summary.json": {
+        "sha256": "fd5d53295a194a77fa153e8c3d25d61be3788700238bbf0305b10821bde90d43",
+        "size": 1287
+      },
+      "token-workload.json": {
+        "sha256": "7027c91da36036203d796d83452edbe795f0e55706808403e3de499052889275",
+        "size": 20317863
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "712ad4060aa7e65daf54bc9a52e87d35f5f13b24bd193a14062da5ae0a43faf6",
+        "size": 49937
+      },
+      "worker-0-before.prom": {
+        "sha256": "ff62cd94dc9dc6125d53021b137efcc251e54f593c423ea75e743652f85612bb",
+        "size": 49938
+      },
+      "worker-0-models.json": {
+        "sha256": "ab317192138a3ef99437597dc6e4082da9bdd8863a5cfafe716c2b94e2d33961",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "a88a6fc46fbdb5679e948bee549151d910521e339422ab267bc7b8355ead009e",
+        "size": 49942
+      },
+      "worker-1-before.prom": {
+        "sha256": "b855274650b1e6087b7905745f6c2171c1952338c794ec32c5eacf685572df61",
+        "size": 49946
+      },
+      "worker-1-models.json": {
+        "sha256": "0ab58f1039b8fe8c70f052ea6b0cb22cfd5233682a8dc49f2a8db641cd9f1a5f",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "5e0ed21d76b602c5f979698982d0fc30797656096713e3ccd18eb8a0f2b10988",
+        "size": 106
+      },
+      "workload.jsonl": {
+        "sha256": "318405ee8bbab584c3c9a0df8017a2ad1a60a9d58fe2f806b4e6967b209b375b",
+        "size": 5447674
+      }
+    },
+    "policy": "least_loaded",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "hot_prefix-s1729-cache_max": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "4201ccf25a47e13997cbca4af8077c9a26c0584d87f5f9cdd3142c278ce602a9",
+        "size": 95683
+      },
+      "resolved-scenario.json": {
+        "sha256": "b4f0123ff6e3a64112c5b073d8a94fb598834865536e065052fc41ddaa9423e2",
+        "size": 348
+      },
+      "summary.json": {
+        "sha256": "081202a1e4e0b389dcbdd2a506abc1b15b92ec18d3d5caa9a04eff7361dfe581",
+        "size": 1314
+      },
+      "token-workload.json": {
+        "sha256": "56d3139f96ccf3f4086cbcfa4a92a25690d66593f74f011c6af4b3239cf55661",
+        "size": 20314334
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "230d574c1177f93eeff2222a1609d38f8cd5c250feb174a56422d53aef16cd0d",
+        "size": 49721
+      },
+      "worker-0-before.prom": {
+        "sha256": "f73f70c88fb7d0cd43da3100bbb2b0ecf725b83667613ad6bdbccbe1be84150e",
+        "size": 49720
+      },
+      "worker-0-models.json": {
+        "sha256": "36ae46e77e43ff8abb390b6a8d7e0a97f49ac38650f0ac1e55d7a3efac751d81",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "64a2686ddd4b96987d8e3c05f631d1c267866abf68a9781ba2ce7d3c94f41eb9",
+        "size": 49729
+      },
+      "worker-1-before.prom": {
+        "sha256": "0dcd9bde2763eb45d26c6eca682aa64df4608e4af0a5cf3f99a57facff7f4011",
+        "size": 49714
+      },
+      "worker-1-models.json": {
+        "sha256": "42bd352efe776d8553e277bab93099f24f45abeda352547d4dac89c67d4bfb2f",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "a195e3f0f7ff4b89d96ea1f68a9387573248ea7f2fa8bac2efce2209b8c57f71",
+        "size": 105
+      },
+      "workload.jsonl": {
+        "sha256": "e687ba08893cf6ed75a29543528f1e34af9621e9f14cf88cfc8c55f694babe67",
+        "size": 5445922
+      }
+    },
+    "policy": "cache_max",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "hot_prefix-s1729-least_loaded": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "4750bd74766ff72f47bf13abcb251ac69272602ce60744737fe43d3403e6bb8a",
+        "size": 96266
+      },
+      "resolved-scenario.json": {
+        "sha256": "b4f0123ff6e3a64112c5b073d8a94fb598834865536e065052fc41ddaa9423e2",
+        "size": 348
+      },
+      "summary.json": {
+        "sha256": "fc1c13514c696add2bb9ebb743cdf8a7bf1ff52dbc948864b0d3095a76ee0347",
+        "size": 1306
+      },
+      "token-workload.json": {
+        "sha256": "56d3139f96ccf3f4086cbcfa4a92a25690d66593f74f011c6af4b3239cf55661",
+        "size": 20314334
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "ae6d4d2e2714d01a40ef7def15a2fe102e6b245acc40fe8c8e7630e19423109c",
+        "size": 49732
+      },
+      "worker-0-before.prom": {
+        "sha256": "bc854014a79c674fdff4734623c7cce4356e0945d8ece38944f22caf1df580be",
+        "size": 49706
+      },
+      "worker-0-models.json": {
+        "sha256": "3c4f521181216c02f563e387d21080b08eebcd5b68dff375d299841a8b3ad8c1",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "8fc8d79b555cdc0aa494994214b6ad2f4cc94c80bff07feac08b294acdf50100",
+        "size": 49710
+      },
+      "worker-1-before.prom": {
+        "sha256": "872401d9dffe6e55399e1372aea3ad1e8318cc5572a3b90e473474650242c11e",
+        "size": 49694
+      },
+      "worker-1-models.json": {
+        "sha256": "982ae133b66687196ff4341eaddbb7eb5b3f5a466e313b9fb20f4bbc25925f99",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "a195e3f0f7ff4b89d96ea1f68a9387573248ea7f2fa8bac2efce2209b8c57f71",
+        "size": 105
+      },
+      "workload.jsonl": {
+        "sha256": "e687ba08893cf6ed75a29543528f1e34af9621e9f14cf88cfc8c55f694babe67",
+        "size": 5445922
+      }
+    },
+    "policy": "least_loaded",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "hot_prefix-s2718-cache_max": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "8e0bda22429219600e51a13f8de428b01dcc0ff746c4ee02d26cc3a0e6c5069d",
+        "size": 95562
+      },
+      "resolved-scenario.json": {
+        "sha256": "ec29f81aaec1a22d00d3927326da7d8a797db10e2f57b347fa7752ce6a44c664",
+        "size": 348
+      },
+      "summary.json": {
+        "sha256": "756e4f6745d64f7cc9508b071c3799f114a7d1c8f5f502f009a0ff5198878c5b",
+        "size": 1308
+      },
+      "token-workload.json": {
+        "sha256": "e99dd7a26cd5ed6825a9ea363254b3a0ec6426fccd87bad432b8c6088406c6d0",
+        "size": 20321237
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "0d45cd0e24af9648b9d4e8b4da38f5b36fb0a9089551c9da049bdd2cb2ab52c8",
+        "size": 49905
+      },
+      "worker-0-before.prom": {
+        "sha256": "d0503e48861046ed93f5448ad57b1660240ae7bc6541a0e065a9791de3be05c9",
+        "size": 49755
+      },
+      "worker-0-models.json": {
+        "sha256": "ecbcb0747c4b9e4ed171d01cc022b5b9f92c599b6fcc263ec7932aed6d004e3f",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "d9c8a1b156748236b639b4cc4df2512238c6a28792fc44b023a00bda766e58f5",
+        "size": 49906
+      },
+      "worker-1-before.prom": {
+        "sha256": "5400d2777de1ba60f631040b3eaed650dcffc823ae0d449b2c73343a58f07ba1",
+        "size": 49766
+      },
+      "worker-1-models.json": {
+        "sha256": "317b8e41b09ad27ba6eb5bc553239c454c0432f6a3b909d5e25bb6a18cc882f7",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "f34f0956428a37e178a6c55f41e9c66ca29832f26f6211ff9fc801f73cef78d4",
+        "size": 105
+      },
+      "workload.jsonl": {
+        "sha256": "e8c98e7acd393aceb764ffa26940c055d9dafd7eff1ffd8b7434690ff4a36e02",
+        "size": 5449359
+      }
+    },
+    "policy": "cache_max",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "hot_prefix-s2718-least_loaded": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "f331ecb5062f61469ccafb7854f982ee472cee5a6530bf5d2f11aa1935462417",
+        "size": 96139
+      },
+      "resolved-scenario.json": {
+        "sha256": "ec29f81aaec1a22d00d3927326da7d8a797db10e2f57b347fa7752ce6a44c664",
+        "size": 348
+      },
+      "summary.json": {
+        "sha256": "deace2191e4f463ab1e610a9dd072ed741b1a6554b3c7e07650eff9c4c11d1e9",
+        "size": 1295
+      },
+      "token-workload.json": {
+        "sha256": "e99dd7a26cd5ed6825a9ea363254b3a0ec6426fccd87bad432b8c6088406c6d0",
+        "size": 20321237
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "ea322b46124b4e8a4ef164882308c20aa31bed7ad6954cd2a0e1caf5056ebb24",
+        "size": 49753
+      },
+      "worker-0-before.prom": {
+        "sha256": "465f94770c5ec8aa627a4496d2ad4f27e64c4fce1f6c0f971a9e628fb04f5e8b",
+        "size": 49741
+      },
+      "worker-0-models.json": {
+        "sha256": "c87c03628500f1fe8e4fef0019b15445c465389153a4a56e89b588ba086ea252",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "13f181f170ef85f7a9cbfd56a650351121b2e565dcccca7fbd406461f6e8ac03",
+        "size": 49755
+      },
+      "worker-1-before.prom": {
+        "sha256": "2f2c85fd8de9f3675f39c61342373b9e063a1b28699173b1663976c2063da02d",
+        "size": 49745
+      },
+      "worker-1-models.json": {
+        "sha256": "2537ee65a0c69a631a111e009fa7c20bf5c504eb88ba1d1df687b49a8810b838",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "f34f0956428a37e178a6c55f41e9c66ca29832f26f6211ff9fc801f73cef78d4",
+        "size": 105
+      },
+      "workload.jsonl": {
+        "sha256": "e8c98e7acd393aceb764ffa26940c055d9dafd7eff1ffd8b7434690ff4a36e02",
+        "size": 5449359
+      }
+    },
+    "policy": "least_loaded",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "hot_prefix-s3141-cache_max": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "5c4f9783e6ed7e4d3aa4d75906f27da767585029c1f25f51befc37e078624995",
+        "size": 95646
+      },
+      "resolved-scenario.json": {
+        "sha256": "d9b46d27b3bacdc6e1dd0aa385bd24eb8e3d0dac050ca3163da0c0f6721ae25d",
+        "size": 348
+      },
+      "summary.json": {
+        "sha256": "bbb19c970bd0470fc4e0939200d3bbfbf525f8b0149205e6aa7fd888ca4aef3c",
+        "size": 1292
+      },
+      "token-workload.json": {
+        "sha256": "ead23d8549074e4426bc1e8380f48269593eaa2439d938488a5f095e78b6c74e",
+        "size": 20323717
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "d4ed73bfc1392693a20b2db5bc8c631ed5a53b94bd090da355e93182f3850335",
+        "size": 49940
+      },
+      "worker-0-before.prom": {
+        "sha256": "79d27501fa92a0780d1803aaac482aa4066b4bcad849b6507cfd2a6fa3f65f0d",
+        "size": 49916
+      },
+      "worker-0-models.json": {
+        "sha256": "77896aa80c90fedda689ee7f5879d8372b0f67ed25438357a0becb8beac54416",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "8b1ff8693af86ad484e386330d01f9e44dc7a24f0cea966afb327d8d48729af3",
+        "size": 49949
+      },
+      "worker-1-before.prom": {
+        "sha256": "d0029ee4e491ef7259f23596117a2be892c6d78a70d57bbc2ca9952bc4439dde",
+        "size": 49930
+      },
+      "worker-1-models.json": {
+        "sha256": "d33d6e71a8991a205b59dadfd3a893cbc9161a7188aa3e0f5d69c2289b0add72",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "d456ab4c7efb4005f5646168c90adbcc6d5237af267157e1999879ac093d2efe",
+        "size": 105
+      },
+      "workload.jsonl": {
+        "sha256": "9094bbb066a2a163acbceab2bd7cb8a5a88ac12ad6c51733f682c5b7fbca9fab",
+        "size": 5450601
+      }
+    },
+    "policy": "cache_max",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "hot_prefix-s3141-least_loaded": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "e0878d43d6aee4d4339b488b23c44f7f17862d6fc46467a647c9f611e28d626c",
+        "size": 96221
+      },
+      "resolved-scenario.json": {
+        "sha256": "d9b46d27b3bacdc6e1dd0aa385bd24eb8e3d0dac050ca3163da0c0f6721ae25d",
+        "size": 348
+      },
+      "summary.json": {
+        "sha256": "d8833203cda7e4c374616a283adfe4201c7febc67679930bceeef677ff62333f",
+        "size": 1293
+      },
+      "token-workload.json": {
+        "sha256": "ead23d8549074e4426bc1e8380f48269593eaa2439d938488a5f095e78b6c74e",
+        "size": 20323717
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "f485bcc37e0b14b9c83e74667b208e66203dd761e1c5403f9f936dd072ab0518",
+        "size": 49916
+      },
+      "worker-0-before.prom": {
+        "sha256": "385ef1981469883c38e0a0b2ce7c8f35b4bb508ed9788673e71619d0e768c31f",
+        "size": 49916
+      },
+      "worker-0-models.json": {
+        "sha256": "8c496d338d8bd13e824999b9494fb9a3ec3851cf1e896a5831554ee55eda5ebb",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "31c7979d6aa70b270010470fba6ee7747d25a5c7ddd123bef3bd827190cf7315",
+        "size": 49931
+      },
+      "worker-1-before.prom": {
+        "sha256": "5838215382b261bd988040982f235c441327a781b73834ce67f0abb17e685172",
+        "size": 49916
+      },
+      "worker-1-models.json": {
+        "sha256": "13825d82e04c3d461d3cb0c39ca99fb8721af8c110446056ce7bf05a399d5dfd",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "d456ab4c7efb4005f5646168c90adbcc6d5237af267157e1999879ac093d2efe",
+        "size": 105
+      },
+      "workload.jsonl": {
+        "sha256": "9094bbb066a2a163acbceab2bd7cb8a5a88ac12ad6c51733f682c5b7fbca9fab",
+        "size": 5450601
+      }
+    },
+    "policy": "least_loaded",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "low_reuse-s1729-cache_max": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "f0e6320a8b8752b16c07baa6da3d22f333d60ae3e70874bbef52661996be9438",
+        "size": 94572
+      },
+      "resolved-scenario.json": {
+        "sha256": "93a256ad656a2d54dae8fb09a770d376c1eb73f5758d5bf64ebc8670836f1133",
+        "size": 347
+      },
+      "summary.json": {
+        "sha256": "f491f8834a93b7e156c110b193337c39ae403e11a4104cd779707cec60784fe3",
+        "size": 1299
+      },
+      "token-workload.json": {
+        "sha256": "9c4446c7164ce4630c2073ce9debcd116fa44bd372481221c753cf7e70957b06",
+        "size": 20313868
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "ee738fae1a1b86bd23ebff2eab3c6140ef6ebf40fef8eee45cb6fa317d1f1d87",
+        "size": 49661
+      },
+      "worker-0-before.prom": {
+        "sha256": "9dcde3a41e17b98f2fb44f605ec8dfe69dd15650537befc452df6ff80e930967",
+        "size": 49649
+      },
+      "worker-0-models.json": {
+        "sha256": "dcf5246f6ca68454fbfa654b0a019db51a75495d7be23de2a2f984357189e03e",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "832ef6523c0cc22888090320656deaf8c7acf1fcd0169cde7c2e4e0e8fb43430",
+        "size": 49660
+      },
+      "worker-1-before.prom": {
+        "sha256": "acccb367d46b0d38ab77b63e1e342323d27e685f7b08edb0617a21a2ddf3b6e2",
+        "size": 49653
+      },
+      "worker-1-models.json": {
+        "sha256": "360e9f71bec3ec7b49db3fc16595cac33136e9d92c046af9d1b1ef1aa54b724b",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "156c844a814356c1277e8b93b2091d3225ce9ad2f08b0690489b1f67de45c64f",
+        "size": 104
+      },
+      "workload.jsonl": {
+        "sha256": "6a33636d2c22b28e623def20cf1a81f65ff16bc6cbdf3368060ca7ecd9bc75ef",
+        "size": 5445689
+      }
+    },
+    "policy": "cache_max",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "low_reuse-s1729-least_loaded": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "1e5793b723583c25c6aa4385d88f25aae00947a7c1fef9924c50256d96121257",
+        "size": 95145
+      },
+      "resolved-scenario.json": {
+        "sha256": "93a256ad656a2d54dae8fb09a770d376c1eb73f5758d5bf64ebc8670836f1133",
+        "size": 347
+      },
+      "summary.json": {
+        "sha256": "8a5c756c0ec5f6c1ecf8422f7fbf79ca3c73c8588af3c1eda1240d3a1369f924",
+        "size": 1297
+      },
+      "token-workload.json": {
+        "sha256": "9c4446c7164ce4630c2073ce9debcd116fa44bd372481221c753cf7e70957b06",
+        "size": 20313868
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "3ab23a4e9fcf6dfedde99d33dcc5e21fcae8be9447d570e2efb0e0bf46957aee",
+        "size": 49635
+      },
+      "worker-0-before.prom": {
+        "sha256": "58279b7fa702af3768ac7355b2b79c323f8272f18b45e1e782c4a02f4f71f76f",
+        "size": 49618
+      },
+      "worker-0-models.json": {
+        "sha256": "fdd357ce137b8ab4493d32bf16a2bcfcb130cf974648d4a73810c20079e9e0ab",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "311a2af1a819fee074c88927d5f8a58d8a269971da7c7b48b54e1a9a85069888",
+        "size": 49639
+      },
+      "worker-1-before.prom": {
+        "sha256": "33f1d845bacfd64e5d1b0dfd4876b867a3d25d43432e84ca0976d05d65cec286",
+        "size": 49620
+      },
+      "worker-1-models.json": {
+        "sha256": "8f29aabfd92fb745caa39ee45ce7b094023880e548db9159cdcd4c52aedc0b9c",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "156c844a814356c1277e8b93b2091d3225ce9ad2f08b0690489b1f67de45c64f",
+        "size": 104
+      },
+      "workload.jsonl": {
+        "sha256": "6a33636d2c22b28e623def20cf1a81f65ff16bc6cbdf3368060ca7ecd9bc75ef",
+        "size": 5445689
+      }
+    },
+    "policy": "least_loaded",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "low_reuse-s2718-cache_max": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "82732003b809d45b27883734dd465657f7e5f99009a6997735f6370b9a1e2c0f",
+        "size": 94538
+      },
+      "resolved-scenario.json": {
+        "sha256": "82a9430131956cbe2465e0716e5f26ab19a94dca2508dc73cccfd84783f90664",
+        "size": 347
+      },
+      "summary.json": {
+        "sha256": "bfa7fdf4fdd5e039ef9d6fa1810fc36e2a204e19dcb85fb19ec490a0118560d2",
+        "size": 1310
+      },
+      "token-workload.json": {
+        "sha256": "bc1a71a5a98483ceb2c3944203bcd9690a72dc6d3c6e17a68c79a8abced57a4f",
+        "size": 20313411
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "c55bad27bd432dccfe854612527484f5dc5c4fadac60f457b7ae0c23d1ee217e",
+        "size": 49914
+      },
+      "worker-0-before.prom": {
+        "sha256": "cbd21f1ad9361a68a3d247af2531b78a6463cb6dadc9777f5a759546bf47a3bc",
+        "size": 49905
+      },
+      "worker-0-models.json": {
+        "sha256": "0ad3a1e5b35c72ffc91a671473b2c677a9648573d25b5b0f37c78cb0c5223437",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "57219c5850c15387a929045d13f12733351c15b163f0df4201579dd48ab30f8c",
+        "size": 49908
+      },
+      "worker-1-before.prom": {
+        "sha256": "7e65ab7f3799140513dbfe4183555269a0f6173f0a68c2b77ed4aaa047920949",
+        "size": 49920
+      },
+      "worker-1-models.json": {
+        "sha256": "bb5658339f170458589608d8f364a015de2af378fc3d95e904a9da06eb377261",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "9536a711ddf492005897fb71b97fa5da1ad0d7a5a51d3e343a91afe69a6962cd",
+        "size": 104
+      },
+      "workload.jsonl": {
+        "sha256": "f8c9c1e1e6c24f0a0105a8b74bebcdef9f3b9d025a9539c781aa64a16ffc082b",
+        "size": 5445446
+      }
+    },
+    "policy": "cache_max",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "low_reuse-s2718-least_loaded": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "58be6f1b78873acf887a02bf3deac12a8462dd4cdb82d74510cae6643ffd339f",
+        "size": 95114
+      },
+      "resolved-scenario.json": {
+        "sha256": "82a9430131956cbe2465e0716e5f26ab19a94dca2508dc73cccfd84783f90664",
+        "size": 347
+      },
+      "summary.json": {
+        "sha256": "11b1cefeea42cd62c6794de0894bda7a5efea58f84ce99dfbb5c025d245b5b8a",
+        "size": 1322
+      },
+      "token-workload.json": {
+        "sha256": "bc1a71a5a98483ceb2c3944203bcd9690a72dc6d3c6e17a68c79a8abced57a4f",
+        "size": 20313411
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "8ff0b9eb54d2603878d18efb005b7046c8e48da29539a2923b2edf57ab713753",
+        "size": 49906
+      },
+      "worker-0-before.prom": {
+        "sha256": "9cde619975f43cec115e9ab18d600f35063b3d0d80ffd3b374d988b10a8539c3",
+        "size": 49925
+      },
+      "worker-0-models.json": {
+        "sha256": "96be16460097434617278a3bc712937c4544ae9019beacb58ecc736038cf5c07",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "14781b27b743c9026ed988e73a07529edc9365fc83b83183620215fb684dee55",
+        "size": 49911
+      },
+      "worker-1-before.prom": {
+        "sha256": "6f0597af9f37cde6a02e13ddd2e3fcb35531ccb1403959d3a8f77695cfc7dfbd",
+        "size": 49911
+      },
+      "worker-1-models.json": {
+        "sha256": "a8c60aa7e463716d26c6497ad741f4a0c83d1268a127998c5ff691a8909f4f0d",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "9536a711ddf492005897fb71b97fa5da1ad0d7a5a51d3e343a91afe69a6962cd",
+        "size": 104
+      },
+      "workload.jsonl": {
+        "sha256": "f8c9c1e1e6c24f0a0105a8b74bebcdef9f3b9d025a9539c781aa64a16ffc082b",
+        "size": 5445446
+      }
+    },
+    "policy": "least_loaded",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "low_reuse-s3141-cache_max": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "658ac4112712403b40c2cf74184d80a13140dcc535c5a8b3231cbd6ec4b42ead",
+        "size": 94547
+      },
+      "resolved-scenario.json": {
+        "sha256": "8323e88df3d12e9960df5548ad1d9abeb57a9b2d124a713e8764cce95a529c1a",
+        "size": 347
+      },
+      "summary.json": {
+        "sha256": "df5ac05ba415935a67e817b651e73caae0f8cb9a76fa8bd4f8b991c14e3cf962",
+        "size": 1302
+      },
+      "token-workload.json": {
+        "sha256": "8e14da09bdfff42797dd70c83e47fafd01b51e5966ab6b9a9836b8dea89603d0",
+        "size": 20313917
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "645a646617f9ee81d0f2c15cbf73388c46819155821d3a481f4e2860cf740727",
+        "size": 49932
+      },
+      "worker-0-before.prom": {
+        "sha256": "015fc497560a161e9df9b30002fa504e27f90b3d37b58babc4077b92f1e3a74f",
+        "size": 49932
+      },
+      "worker-0-models.json": {
+        "sha256": "514c5c20a22db2b9bde99ff0d3296f5fb9302250e77919d5d82d18f297cdd215",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "f8b4b8d29a03b391dd9648272cd3afc4ea151d524b170f0a27b35bcb84a46b54",
+        "size": 49943
+      },
+      "worker-1-before.prom": {
+        "sha256": "bc478b1dae7de76110a37c519dcce18ccbca9650bfbe760247b0681c77c0a401",
+        "size": 49953
+      },
+      "worker-1-models.json": {
+        "sha256": "443c779c6a5f8e1a347c67eb1642d16102b52a7e4ceeebfafe0b27c093fd3e2f",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "a0ff171be7063bca2d41eba6ebbebcb6d79e1df9feb3d5893d6a067021a8377c",
+        "size": 104
+      },
+      "workload.jsonl": {
+        "sha256": "1cd7ecc8032175f0127e1ad78e2809cad9337286e712e30fa0144b63829a3b22",
+        "size": 5445701
+      }
+    },
+    "policy": "cache_max",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  },
+  "low_reuse-s3141-least_loaded": {
+    "agent_semantics": "synthetic prompts; generated outputs are not fed forward",
+    "backend": "vllm",
+    "cache_estimate": "completed-prompt LRU; no actual eviction visibility",
+    "outputs": {
+      "gpu-config.json": {
+        "sha256": "7aeb985e0e3e4b537452087c7d670f99f90cef306f652ad9255ffcc75a9174c4",
+        "size": 466
+      },
+      "requests.jsonl": {
+        "sha256": "5a0faf839e545c761518e406f48f982389035ac0c6b2ebc0ef155586cac492bd",
+        "size": 95123
+      },
+      "resolved-scenario.json": {
+        "sha256": "8323e88df3d12e9960df5548ad1d9abeb57a9b2d124a713e8764cce95a529c1a",
+        "size": 347
+      },
+      "summary.json": {
+        "sha256": "af66747fda961e570144394c37bfe2e9f9fd49a61f5a15d6370f803da15903da",
+        "size": 1328
+      },
+      "token-workload.json": {
+        "sha256": "8e14da09bdfff42797dd70c83e47fafd01b51e5966ab6b9a9836b8dea89603d0",
+        "size": 20313917
+      },
+      "vocabulary.json": {
+        "sha256": "ac623f239f5043dd136308f18a5dd9dfe31db3608411ccb8200750c22cae427b",
+        "size": 1405443
+      },
+      "worker-0-after.prom": {
+        "sha256": "49dfb07120f9b04e4f5b4c62a63c59122dd0124aa0c2222efd9171f4d76abb3d",
+        "size": 49935
+      },
+      "worker-0-before.prom": {
+        "sha256": "d1263de52fb6817965332b7a53cbd77c82b87ce90d10fa35dd15abedc74fc41c",
+        "size": 49933
+      },
+      "worker-0-models.json": {
+        "sha256": "71bc21eb00ea2a060322b07582fd4b5f29dd526d855bcd6dc8316466ff954d8e",
+        "size": 717
+      },
+      "worker-1-after.prom": {
+        "sha256": "fc3acdc61573d9f2b6253d259dca167ce1a479b0ff906f630e45e094867940e4",
+        "size": 49938
+      },
+      "worker-1-before.prom": {
+        "sha256": "cd5ddbdd6e95d3fcb8aa10a18f2895bfb569ca5b5a439df53a592e6ae7a705dd",
+        "size": 49956
+      },
+      "worker-1-models.json": {
+        "sha256": "1f8b3bd0aaeeccdec63e91cdced903ac6421b06b49e5fad3fc2fa8b0a5dccbcd",
+        "size": 717
+      },
+      "workload-provenance.json": {
+        "sha256": "a0ff171be7063bca2d41eba6ebbebcb6d79e1df9feb3d5893d6a067021a8377c",
+        "size": 104
+      },
+      "workload.jsonl": {
+        "sha256": "1cd7ecc8032175f0127e1ad78e2809cad9337286e712e30fa0144b63829a3b22",
+        "size": 5445701
+      }
+    },
+    "policy": "least_loaded",
+    "schema_version": 1,
+    "state": "complete",
+    "ttft_definition": "scheduled release to first nonempty streamed text"
+  }
+}

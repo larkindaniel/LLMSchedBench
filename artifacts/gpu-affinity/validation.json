@@ -1,0 +1,14 @@
+{
+  "runs": {
+    "runs": 18,
+    "calls": 3456
+  },
+  "probes": {
+    "runs": 2,
+    "calls": 192
+  },
+  "warmups": {
+    "runs": 10,
+    "calls": 80
+  }
+}

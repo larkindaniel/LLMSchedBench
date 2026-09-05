@@ -1,0 +1,100 @@
+{
+  "calls_per_run": 192,
+  "probes": [
+    {
+      "by_tenant": {
+        "api_batch": {
+          "calls": 32,
+          "max_dispatch_lag_ms": 4.752896,
+          "p95_latency_ms": 5606.3475059,
+          "p95_ttft_ms": 893.355087,
+          "slo_attainment_all_calls": 1.0,
+          "slo_goodput_calls_s": 0.6666666666666666,
+          "successful_calls": 32,
+          "unsuccessful_calls": 0,
+          "window_s": 48.0
+        },
+        "chat": {
+          "calls": 32,
+          "max_dispatch_lag_ms": 19.449221,
+          "p95_latency_ms": 5936.771921199999,
+          "p95_ttft_ms": 909.7278871,
+          "slo_attainment_all_calls": 1.0,
+          "slo_goodput_calls_s": 0.6666666666666666,
+          "successful_calls": 32,
+          "unsuccessful_calls": 0,
+          "window_s": 48.0
+        },
+        "coding_agent": {
+          "calls": 32,
+          "max_dispatch_lag_ms": 4.91919,
+          "p95_latency_ms": 5712.5870514,
+          "p95_ttft_ms": 1044.20945715,
+          "slo_attainment_all_calls": 1.0,
+          "slo_goodput_calls_s": 0.6666666666666666,
+          "successful_calls": 32,
+          "unsuccessful_calls": 0,
+          "window_s": 48.0
+        }
+      },
+      "calls": 96,
+      "max_dispatch_lag_ms": 19.449221,
+      "p95_latency_ms": 5769.3640655,
+      "p95_ttft_ms": 952.0343995,
+      "rate": 2,
+      "slo_attainment_all_calls": 1.0,
+      "slo_goodput_calls_s": 2.0,
+      "successful_calls": 96,
+      "unsuccessful_calls": 0,
+      "window_s": 48.0
+    },
+    {
+      "by_tenant": {
+        "api_batch": {
+          "calls": 32,
+          "max_dispatch_lag_ms": 5.981619,
+          "p95_latency_ms": 26647.93470945,
+          "p95_ttft_ms": 3053.0844503999997,
+          "slo_attainment_all_calls": 1.0,
+          "slo_goodput_calls_s": 0.0,
+          "successful_calls": 32,
+          "unsuccessful_calls": 0,
+          "window_s": 24.0
+        },
+        "chat": {
+          "calls": 32,
+          "max_dispatch_lag_ms": 7.399916,
+          "p95_latency_ms": 26740.39108235,
+          "p95_ttft_ms": 3033.8497844,
+          "slo_attainment_all_calls": 0.15625,
+          "slo_goodput_calls_s": 0.0,
+          "successful_calls": 32,
+          "unsuccessful_calls": 0,
+          "window_s": 24.0
+        },
+        "coding_agent": {
+          "calls": 32,
+          "max_dispatch_lag_ms": 8.143459,
+          "p95_latency_ms": 26568.141217099997,
+          "p95_ttft_ms": 2804.78578785,
+          "slo_attainment_all_calls": 0.5625,
+          "slo_goodput_calls_s": 0.0,
+          "successful_calls": 32,
+          "unsuccessful_calls": 0,
+          "window_s": 24.0
+        }
+      },
+      "calls": 96,
+      "max_dispatch_lag_ms": 8.143459,
+      "p95_latency_ms": 26720.219897249997,
+      "p95_ttft_ms": 3003.210362,
+      "rate": 4,
+      "slo_attainment_all_calls": 0.5729166666666666,
+      "slo_goodput_calls_s": 0.0,
+      "successful_calls": 96,
+      "unsuccessful_calls": 0,
+      "window_s": 24.0
+    }
+  ],
+  "rate": 4
+}

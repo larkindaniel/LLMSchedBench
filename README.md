@@ -2,10 +2,11 @@
 
 LLMSchedBench is a trace-driven benchmark for comparing how LLM requests are
 routed across shared inference workers. It combines chat, coding-agent, and
-API/batch traffic, replays the workload in
-[LLMServingSim](https://github.com/casys-kaist/LLMServingSim), and reports the
-latency, cache reuse, fairness, goodput, starvation, and utilization tradeoffs
-of each routing policy.
+API/batch traffic, replays workloads in
+[LLMServingSim](https://github.com/casys-kaist/LLMServingSim) or against real vLLM
+GPU workers, and compares routing behavior. The simulator reports latency, cache
+reuse, fairness, goodput, starvation, and utilization; the hardware backend records
+streamed request timing and server telemetry for two routing policies.
 
 Use it to answer questions such as:
 
@@ -38,7 +39,7 @@ The policy engine is written in C++20 and exposed to Python with pybind11.
 Python handles data preparation, experiment orchestration, validation, and
 reporting. The simulator runs in a pinned Linux AMD64 Docker image.
 
-## Published results
+## Published simulator results
 
 The included experiment contains 28 runs over a controlled 60% chat, 25%
 coding-agent, and 15% API/batch workload on two simulated RTX PRO 6000 workers
@@ -147,6 +148,58 @@ The report command validates completed run manifests and produces JSONL
 summaries, cross-seed intervals, static SVG figures, a Markdown report, and an
 artifact manifest.
 
+## Real-GPU backend
+
+An initial vLLM backend replays the same mixed workloads through `least_loaded`
+and `cache_max` on independent GPU workers. It includes a rental-host launcher,
+streamed request measurements, checksummed artifacts, and hardware comparison
+reports. On September 5, 2026, Qwen3-4B passed a 47-call single-A6000 validation
+and a two-A6000 comparison with 47 successful calls per policy. These are smoke
+tests, not evidence of a general policy winner.
+See [the rented-GPU guide](docs/REAL_GPU.md) for setup and measurement limitations.
+
+A subsequent controlled prefix-affinity study completed **18 runs and 3,456
+successful requests** on two A6000 workers. Shared-prefix conditions had much
+lower latency and fewer waiting requests under both policies; Cache-Max added
+modest improvements, but the popular-prefix bottleneck hypothesis was not observed
+at this operating point. These are three-seed descriptive results, not a universal
+policy ranking. See the [hardware findings and figure](docs/GPU_AFFINITY_FINDINGS.md),
+[experiment protocol](docs/GPU_AFFINITY_STUDY.md), and
+[interview walkthrough](docs/GPU_AFFINITY_INTERVIEW.md).
+
+The hardware study used Qwen3-4B, 4096-token inputs, 128-token outputs, and three
+workload seeds at a nominal 4 requests/second. The table reports **means of three
+per-run p95 first-output latencies**, not pooled percentiles or confidence intervals.
+Server cache-hit percentages count cached input tokens.
+
+| Prefix pattern | `least_loaded` p95 first output | `cache_max` p95 first output | Server cache hits (LL / CM) | Peak sampled waiting requests (LL / CM) |
+|---|---:|---:|---:|---:|
+| Little reuse | 11,443 ms | 11,276 ms | 0% / 0% | 24 / 24 |
+| Distributed reuse | 598 ms | 572 ms | 68.75% / 70.18% | 1 / 1 |
+| Popular prefix | 514 ms | 492 ms | 69.27% / 70.83% | 1 / 0 |
+
+![Real-GPU measurements across three workload seeds](artifacts/gpu-affinity/figures/prefix-affinity.png)
+
+Prefix sharing reduced first-output latency by roughly 95% relative to the
+unique-prefix control under **both** policies at this operating point. This is
+not a 95% improvement from Cache-Max. Its additional benefits were much smaller,
+and three seeds do not establish a general policy ranking. The expected
+popular-prefix bottleneck did not occur; requests remained almost evenly split
+between workers.
+
+The study also completed 192 probe requests and 80 warm-up requests, bringing its
+total to **3,728 successful requests**. Both rental attempts were confirmed
+terminated. A conservative launch-to-confirmed-termination compute estimate is
+**US$3.92**, including the failed setup attempt, before tax or currency conversion;
+this is not an invoice. See the [rental record](artifacts/gpu-affinity/rental-outcome.json).
+
+The [full run table](artifacts/gpu-affinity/report.md),
+[per-run measurements](artifacts/gpu-affinity/results.json),
+[paired differences](artifacts/gpu-affinity/aggregate.json), and
+[checksummed evidence manifest](artifacts/gpu-affinity/manifest.json) are included
+with the source snapshot and compressed request logs.
+
+
 ## Metrics
 
 - **TTFT and completion latency:** p50, p95, p99, and mean, globally and by
@@ -165,11 +218,18 @@ artifact manifest.
 
 ## Scope and limitations
 
-The published numbers are simulator measurements under Linux AMD64 emulation
-on Apple Silicon, not real-GPU measurements. SLOs, service rates, hardware,
-cluster size, and tenant mix are controlled assumptions. The current result set
-covers one base workload; agent-burst, low-prefix-reuse, explicit
-fairness/affinity ablations, and real-vLLM validation remain future work.
+The simulator results use Linux AMD64 emulation on Apple Silicon and controlled
+service-rate assumptions. The separate hardware study uses real A6000 GPUs and
+Qwen3-4B; it must not be compared directly with the Llama simulation as if only the
+backend changed.
+
+The hardware study covers one selected load, two workers, three seeds, and short
+synthetic fixed-length workloads. First-output timing includes client scheduling
+lag. Queue telemetry is sampled approximately once per second. These controls
+isolate prefix-sharing behavior, but do not establish production performance,
+weighted fairness, real agent-chain behavior, or a universal policy ranking.
+Longer heterogeneous workloads, load sweeps, and a matched simulator/hardware
+comparison remain future work.
 
 Raw public data and generated runs are excluded from Git because they are bulky
 and reproducible from checksummed inputs. See the

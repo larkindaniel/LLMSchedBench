@@ -1,0 +1,1082 @@
+[
+  {
+    "actual_cache_hit_fraction": 0.7109375,
+    "actual_cache_hits": 559104.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 4.773168,
+        "p95_latency_ms": 4232.8308861,
+        "p95_ttft_ms": 487.5434407499999,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.0833333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 14.67141,
+        "p95_latency_ms": 4110.174940349998,
+        "p95_ttft_ms": 416.7997199999999,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1041666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 9.547361,
+        "p95_latency_ms": 4074.5181992999997,
+        "p95_ttft_ms": 382.46810604999956,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.0833333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "distributed",
+    "max_dispatch_lag_ms": 14.67141,
+    "p95_latency_ms": 4193.079063449999,
+    "p95_ttft_ms": 411.9461752999999,
+    "peak_waiting": [
+      0.0,
+      0.0
+    ],
+    "policy": "cache_max",
+    "seed": 1729,
+    "slo_attainment_all_calls": 1.0,
+    "slo_goodput_calls_s": 3.2708333333333335,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      97,
+      95
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.6875,
+    "actual_cache_hits": 540672.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 21.559532,
+        "p95_latency_ms": 4329.825916149999,
+        "p95_ttft_ms": 497.6934749,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.0833333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 8.668421,
+        "p95_latency_ms": 4209.41912455,
+        "p95_ttft_ms": 434.34759739999987,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1041666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 6.254209,
+        "p95_latency_ms": 4322.66475825,
+        "p95_ttft_ms": 407.11993134999994,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1041666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "distributed",
+    "max_dispatch_lag_ms": 21.559532,
+    "p95_latency_ms": 4293.320311499999,
+    "p95_ttft_ms": 471.8032443999996,
+    "peak_waiting": [
+      0.0,
+      0.0
+    ],
+    "policy": "least_loaded",
+    "seed": 1729,
+    "slo_attainment_all_calls": 1.0,
+    "slo_goodput_calls_s": 3.2916666666666665,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      96,
+      96
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.69921875,
+    "actual_cache_hits": 549888.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 4.695875,
+        "p95_latency_ms": 5343.215657749999,
+        "p95_ttft_ms": 754.2444566999989,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1666666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 11.702801,
+        "p95_latency_ms": 5755.171563799998,
+        "p95_ttft_ms": 735.7609765999985,
+        "slo_attainment_all_calls": 0.984375,
+        "slo_goodput_calls_s": 1.1458333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 24.994434,
+        "p95_latency_ms": 5784.1202172999965,
+        "p95_ttft_ms": 650.8153591999993,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1666666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "distributed",
+    "max_dispatch_lag_ms": 24.994434,
+    "p95_latency_ms": 5842.779922549999,
+    "p95_ttft_ms": 780.1000630999999,
+    "peak_waiting": [
+      1.0,
+      1.0
+    ],
+    "policy": "cache_max",
+    "seed": 2718,
+    "slo_attainment_all_calls": 0.9947916666666666,
+    "slo_goodput_calls_s": 3.4791666666666665,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      97,
+      95
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.6875,
+    "actual_cache_hits": 540672.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 20.475898,
+        "p95_latency_ms": 5341.371432049999,
+        "p95_ttft_ms": 775.7228591499995,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1666666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 21.479181,
+        "p95_latency_ms": 5765.022688549998,
+        "p95_ttft_ms": 766.2722772499993,
+        "slo_attainment_all_calls": 0.984375,
+        "slo_goodput_calls_s": 1.1458333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 39.508546,
+        "p95_latency_ms": 5776.905407799996,
+        "p95_ttft_ms": 704.4676452999997,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1666666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "distributed",
+    "max_dispatch_lag_ms": 39.508546,
+    "p95_latency_ms": 5846.4652043,
+    "p95_ttft_ms": 785.2169203999999,
+    "peak_waiting": [
+      1.0,
+      1.0
+    ],
+    "policy": "least_loaded",
+    "seed": 2718,
+    "slo_attainment_all_calls": 0.9947916666666666,
+    "slo_goodput_calls_s": 3.4791666666666665,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      96,
+      96
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.6953125,
+    "actual_cache_hits": 546816.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 28.678692,
+        "p95_latency_ms": 5209.557550299999,
+        "p95_ttft_ms": 511.8746136499989,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 8.279431,
+        "p95_latency_ms": 5500.329280699998,
+        "p95_ttft_ms": 474.65882385,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 24.529638,
+        "p95_latency_ms": 5376.102978599998,
+        "p95_ttft_ms": 537.7009654999998,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "distributed",
+    "max_dispatch_lag_ms": 28.678692,
+    "p95_latency_ms": 5312.0034889499975,
+    "p95_ttft_ms": 523.4106698999997,
+    "peak_waiting": [
+      1.0,
+      0.0
+    ],
+    "policy": "cache_max",
+    "seed": 3141,
+    "slo_attainment_all_calls": 1.0,
+    "slo_goodput_calls_s": 4.0,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      96,
+      96
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.6875,
+    "actual_cache_hits": 540672.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 18.701145,
+        "p95_latency_ms": 5212.77922255,
+        "p95_ttft_ms": 579.9764187999998,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 17.458418,
+        "p95_latency_ms": 5503.715792649998,
+        "p95_ttft_ms": 484.6373283,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 20.164315,
+        "p95_latency_ms": 5433.856395649998,
+        "p95_ttft_ms": 536.41648565,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "distributed",
+    "max_dispatch_lag_ms": 20.164315,
+    "p95_latency_ms": 5413.204639949999,
+    "p95_ttft_ms": 538.3189538,
+    "peak_waiting": [
+      1.0,
+      0.0
+    ],
+    "policy": "least_loaded",
+    "seed": 3141,
+    "slo_attainment_all_calls": 1.0,
+    "slo_goodput_calls_s": 4.0,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      96,
+      96
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.70703125,
+    "actual_cache_hits": 556032.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 5.089353,
+        "p95_latency_ms": 3931.1820528999992,
+        "p95_ttft_ms": 487.6796209,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.0833333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 8.10274,
+        "p95_latency_ms": 3992.1605743999994,
+        "p95_ttft_ms": 366.6154682999995,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1041666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 5.277397,
+        "p95_latency_ms": 3900.600941949999,
+        "p95_ttft_ms": 295.8568976999999,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1041666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "hot_prefix",
+    "max_dispatch_lag_ms": 8.10274,
+    "p95_latency_ms": 3972.282201849999,
+    "p95_ttft_ms": 429.51195929999983,
+    "peak_waiting": [
+      0.0,
+      0.0
+    ],
+    "policy": "cache_max",
+    "seed": 1729,
+    "slo_attainment_all_calls": 1.0,
+    "slo_goodput_calls_s": 3.2916666666666665,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      93,
+      99
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.6875,
+    "actual_cache_hits": 540672.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 66.703691,
+        "p95_latency_ms": 3972.6929636,
+        "p95_ttft_ms": 468.29617375,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.0833333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 12.07332,
+        "p95_latency_ms": 4011.1596042,
+        "p95_ttft_ms": 431.19264124999984,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1041666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 17.985439,
+        "p95_latency_ms": 3918.1273315,
+        "p95_ttft_ms": 432.70220599999976,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1041666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "hot_prefix",
+    "max_dispatch_lag_ms": 66.703691,
+    "p95_latency_ms": 3988.9373791999997,
+    "p95_ttft_ms": 463.91038499999996,
+    "peak_waiting": [
+      0.0,
+      0.0
+    ],
+    "policy": "least_loaded",
+    "seed": 1729,
+    "slo_attainment_all_calls": 1.0,
+    "slo_goodput_calls_s": 3.2916666666666665,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      97,
+      95
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.7109375,
+    "actual_cache_hits": 559104.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 4.829417,
+        "p95_latency_ms": 4007.8718200499998,
+        "p95_ttft_ms": 570.8131974499996,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1666666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 33.110201,
+        "p95_latency_ms": 4079.8427770499998,
+        "p95_ttft_ms": 477.5247551499997,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1875,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 23.171883,
+        "p95_latency_ms": 4090.8774359999998,
+        "p95_ttft_ms": 516.8925955499996,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1666666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "hot_prefix",
+    "max_dispatch_lag_ms": 33.110201,
+    "p95_latency_ms": 4088.6442798,
+    "p95_ttft_ms": 535.9765249499998,
+    "peak_waiting": [
+      0.0,
+      0.0
+    ],
+    "policy": "cache_max",
+    "seed": 2718,
+    "slo_attainment_all_calls": 1.0,
+    "slo_goodput_calls_s": 3.5208333333333335,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      95,
+      97
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.6953125,
+    "actual_cache_hits": 546816.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 6.0987,
+        "p95_latency_ms": 4421.858580949998,
+        "p95_ttft_ms": 568.2589936499996,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1666666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 33.579596,
+        "p95_latency_ms": 4439.805620799999,
+        "p95_ttft_ms": 535.8632629499997,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1666666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 27.087513,
+        "p95_latency_ms": 4408.5904673000005,
+        "p95_ttft_ms": 538.963668,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.1666666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "hot_prefix",
+    "max_dispatch_lag_ms": 33.579596,
+    "p95_latency_ms": 4468.63639945,
+    "p95_ttft_ms": 560.5746604499997,
+    "peak_waiting": [
+      0.0,
+      1.0
+    ],
+    "policy": "least_loaded",
+    "seed": 2718,
+    "slo_attainment_all_calls": 1.0,
+    "slo_goodput_calls_s": 3.5,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      95,
+      97
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.70703125,
+    "actual_cache_hits": 556032.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 11.681044,
+        "p95_latency_ms": 4362.00665185,
+        "p95_ttft_ms": 350.31667114999965,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 11.55798,
+        "p95_latency_ms": 4407.0135601,
+        "p95_ttft_ms": 525.0358983499999,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 26.668714,
+        "p95_latency_ms": 4393.33607995,
+        "p95_ttft_ms": 473.76273554999995,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "hot_prefix",
+    "max_dispatch_lag_ms": 26.668714,
+    "p95_latency_ms": 4387.3337027,
+    "p95_ttft_ms": 510.91583294999987,
+    "peak_waiting": [
+      0.0,
+      0.0
+    ],
+    "policy": "cache_max",
+    "seed": 3141,
+    "slo_attainment_all_calls": 1.0,
+    "slo_goodput_calls_s": 4.0,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      96,
+      96
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.6953125,
+    "actual_cache_hits": 546816.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 21.943075,
+        "p95_latency_ms": 4365.6169147499995,
+        "p95_ttft_ms": 439.906176049999,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 29.57662,
+        "p95_latency_ms": 4427.5015526,
+        "p95_ttft_ms": 517.2239803499999,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 19.095316,
+        "p95_latency_ms": 4443.7906610499995,
+        "p95_ttft_ms": 515.0149961999999,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 1.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "hot_prefix",
+    "max_dispatch_lag_ms": 29.57662,
+    "p95_latency_ms": 4404.86448945,
+    "p95_ttft_ms": 518.39881635,
+    "peak_waiting": [
+      0.0,
+      0.0
+    ],
+    "policy": "least_loaded",
+    "seed": 3141,
+    "slo_attainment_all_calls": 1.0,
+    "slo_goodput_calls_s": 4.0,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      96,
+      96
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.0,
+    "actual_cache_hits": 0.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 11.80956,
+        "p95_latency_ms": 38447.5738373,
+        "p95_ttft_ms": 6219.369763249995,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 0.375,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 39.862257,
+        "p95_latency_ms": 38486.4518023,
+        "p95_ttft_ms": 5848.956864599995,
+        "slo_attainment_all_calls": 0.3125,
+        "slo_goodput_calls_s": 0.3333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 15.752023,
+        "p95_latency_ms": 38350.1597531,
+        "p95_ttft_ms": 6023.760489849998,
+        "slo_attainment_all_calls": 0.453125,
+        "slo_goodput_calls_s": 0.375,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "low_reuse",
+    "max_dispatch_lag_ms": 39.862257,
+    "p95_latency_ms": 38484.50263895,
+    "p95_ttft_ms": 6098.5128475,
+    "peak_waiting": [
+      7.0,
+      7.0
+    ],
+    "policy": "cache_max",
+    "seed": 1729,
+    "slo_attainment_all_calls": 0.5885416666666666,
+    "slo_goodput_calls_s": 1.0833333333333333,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      96,
+      96
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.0,
+    "actual_cache_hits": 0.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 9.057863,
+        "p95_latency_ms": 38232.7907402,
+        "p95_ttft_ms": 5987.3542887999965,
+        "slo_attainment_all_calls": 1.0,
+        "slo_goodput_calls_s": 0.375,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 30.575741,
+        "p95_latency_ms": 38308.4505538,
+        "p95_ttft_ms": 5574.887703199995,
+        "slo_attainment_all_calls": 0.296875,
+        "slo_goodput_calls_s": 0.3541666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 10.200762,
+        "p95_latency_ms": 38256.69019335,
+        "p95_ttft_ms": 5994.192658899996,
+        "slo_attainment_all_calls": 0.484375,
+        "slo_goodput_calls_s": 0.375,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "low_reuse",
+    "max_dispatch_lag_ms": 30.575741,
+    "p95_latency_ms": 38284.07523735,
+    "p95_ttft_ms": 6080.260384599999,
+    "peak_waiting": [
+      9.0,
+      7.0
+    ],
+    "policy": "least_loaded",
+    "seed": 1729,
+    "slo_attainment_all_calls": 0.59375,
+    "slo_goodput_calls_s": 1.1041666666666667,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      96,
+      96
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.0,
+    "actual_cache_hits": 0.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 19.724659,
+        "p95_latency_ms": 42335.642102,
+        "p95_ttft_ms": 8976.6464012,
+        "slo_attainment_all_calls": 0.96875,
+        "slo_goodput_calls_s": 0.2916666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 15.057033,
+        "p95_latency_ms": 42489.618547900005,
+        "p95_ttft_ms": 9009.7872284,
+        "slo_attainment_all_calls": 0.078125,
+        "slo_goodput_calls_s": 0.10416666666666667,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 15.583882,
+        "p95_latency_ms": 42759.22666535,
+        "p95_ttft_ms": 9306.771486099999,
+        "slo_attainment_all_calls": 0.25,
+        "slo_goodput_calls_s": 0.25,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "low_reuse",
+    "max_dispatch_lag_ms": 19.724659,
+    "p95_latency_ms": 42492.00020875,
+    "p95_ttft_ms": 9042.1885742,
+    "peak_waiting": [
+      13.0,
+      10.0
+    ],
+    "policy": "cache_max",
+    "seed": 2718,
+    "slo_attainment_all_calls": 0.4322916666666667,
+    "slo_goodput_calls_s": 0.6458333333333334,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      97,
+      95
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.0,
+    "actual_cache_hits": 0.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 14.607209,
+        "p95_latency_ms": 42926.6940923,
+        "p95_ttft_ms": 9503.605028649998,
+        "slo_attainment_all_calls": 0.96875,
+        "slo_goodput_calls_s": 0.2708333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 20.70564,
+        "p95_latency_ms": 42776.674716400004,
+        "p95_ttft_ms": 9374.108470449999,
+        "slo_attainment_all_calls": 0.078125,
+        "slo_goodput_calls_s": 0.08333333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 16.254561,
+        "p95_latency_ms": 42789.2607597,
+        "p95_ttft_ms": 9577.815248449997,
+        "slo_attainment_all_calls": 0.28125,
+        "slo_goodput_calls_s": 0.25,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "low_reuse",
+    "max_dispatch_lag_ms": 20.70564,
+    "p95_latency_ms": 42850.38988905,
+    "p95_ttft_ms": 9539.79906985,
+    "peak_waiting": [
+      12.0,
+      11.0
+    ],
+    "policy": "least_loaded",
+    "seed": 2718,
+    "slo_attainment_all_calls": 0.4427083333333333,
+    "slo_goodput_calls_s": 0.6041666666666666,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      96,
+      96
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.0,
+    "actual_cache_hits": 0.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 12.019226,
+        "p95_latency_ms": 44943.600616,
+        "p95_ttft_ms": 18400.0760739,
+        "slo_attainment_all_calls": 0.625,
+        "slo_goodput_calls_s": 0.25,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 26.290371,
+        "p95_latency_ms": 44588.3223926,
+        "p95_ttft_ms": 18732.233402399997,
+        "slo_attainment_all_calls": 0.140625,
+        "slo_goodput_calls_s": 0.1875,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 9.146947,
+        "p95_latency_ms": 44962.332652799996,
+        "p95_ttft_ms": 18456.43452075,
+        "slo_attainment_all_calls": 0.203125,
+        "slo_goodput_calls_s": 0.2708333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "low_reuse",
+    "max_dispatch_lag_ms": 26.290371,
+    "p95_latency_ms": 44937.02291675,
+    "p95_ttft_ms": 18686.9431471,
+    "peak_waiting": [
+      22.0,
+      24.0
+    ],
+    "policy": "cache_max",
+    "seed": 3141,
+    "slo_attainment_all_calls": 0.3229166666666667,
+    "slo_goodput_calls_s": 0.7083333333333334,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      95,
+      97
+    ]
+  },
+  {
+    "actual_cache_hit_fraction": 0.0,
+    "actual_cache_hits": 0.0,
+    "actual_cache_queries": 786432.0,
+    "by_tenant": {
+      "api_batch": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 13.590663,
+        "p95_latency_ms": 44968.89788385,
+        "p95_ttft_ms": 18456.518380449997,
+        "slo_attainment_all_calls": 0.625,
+        "slo_goodput_calls_s": 0.2708333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "chat": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 12.794371,
+        "p95_latency_ms": 44640.62632265,
+        "p95_ttft_ms": 18742.475696899997,
+        "slo_attainment_all_calls": 0.140625,
+        "slo_goodput_calls_s": 0.1875,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      },
+      "coding_agent": {
+        "calls": 64,
+        "max_dispatch_lag_ms": 9.327098,
+        "p95_latency_ms": 45012.179427999996,
+        "p95_ttft_ms": 18486.4060601,
+        "slo_attainment_all_calls": 0.203125,
+        "slo_goodput_calls_s": 0.2708333333333333,
+        "successful_calls": 64,
+        "unsuccessful_calls": 0,
+        "window_s": 48.0
+      }
+    },
+    "calls": 192,
+    "condition": "low_reuse",
+    "max_dispatch_lag_ms": 13.590663,
+    "p95_latency_ms": 44968.68391545,
+    "p95_ttft_ms": 18709.270595299997,
+    "peak_waiting": [
+      22.0,
+      24.0
+    ],
+    "policy": "least_loaded",
+    "seed": 3141,
+    "slo_attainment_all_calls": 0.3229166666666667,
+    "slo_goodput_calls_s": 0.7291666666666666,
+    "successful_calls": 192,
+    "unsuccessful_calls": 0,
+    "window_s": 48.0,
+    "worker_calls": [
+      95,
+      97
+    ]
+  }
+]

@@ -31,7 +31,13 @@
 
 ## Milestone 4: real-system validation
 
-- Provision two identical 24 GB-or-larger GPU workers within the approved cap.
-- Profile Qwen3-4B and replay timestamp-faithful Qwen traffic.
-- Compare qualitative ranking and crossover behavior with simulation.
-- Record exact cloud configuration and final reproduction commands.
+- [x] Provision two identical GPU workers within a bounded rental window.
+- [x] Validate the real vLLM backend on Qwen3-4B and retain pinned configurations.
+- [x] Complete the 18-run controlled prefix-affinity study on two A6000 workers.
+- [x] Include figures, request logs, source snapshot, protocol, and findings in the repository.
+- [ ] Expand from fixed-length synthetic controls to longer heterogeneous trace runs.
+- [ ] Compare qualitative ranking and crossover behavior with a matched simulator setup.
+- [ ] Test load sweeps, cache-capacity constraints, and cache-disabled ablations.
+
+See [the hardware findings](GPU_AFFINITY_FINDINGS.md) for the measured results and
+limits; the popular-prefix bottleneck was not observed in the tested configuration.
